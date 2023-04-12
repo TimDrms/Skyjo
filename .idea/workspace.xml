@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work. It doesn't work for the moment.">
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ add the setters and getters for the class Player.">
+      <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681204494541</updated>
-      <workItem from="1681204495685" duration="3891000" />
+      <workItem from="1681204495685" duration="4497000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore and start of the project">
       <created>1681205997967</created>
@@ -82,7 +82,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681215287850</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="+ add the setters and getters for the class Player.">
+      <created>1681215950516</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681215950516</updated>
+    </task>
+    <task id="LOCAL-00006" summary="+ add the setters and getters for the class Player.">
+      <created>1681215962162</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681215962162</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +108,7 @@
     <MESSAGE value="+ add the setters and getters for value and isReturned" />
     <MESSAGE value="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work." />
     <MESSAGE value="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work. It doesn't work for the moment." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work. It doesn't work for the moment." />
+    <MESSAGE value="+ add the setters and getters for the class Player." />
+    <option name="LAST_COMMIT_MESSAGE" value="+ add the setters and getters for the class Player." />
   </component>
 </project>

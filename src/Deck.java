@@ -24,4 +24,12 @@ public class Deck {
         }
         return this.deck;
     }
+    public void returnCard(Card card){
+        if(card.getIsReturded() == false){
+            card.setIsReturned(true);
+        }
+        else{
+            System.out.println("Error: this card has already been returned.");
+        }
+    }
 }
