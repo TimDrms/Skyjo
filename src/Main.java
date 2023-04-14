@@ -11,9 +11,20 @@ public class Main {
         drawPile1.generateDrawPile();
         System.out.println(drawPile1);
 
+        System.out.println("\n Take 3 random cards from the draw pile.");
+        for(int i = 0 ; i<=2 ; i++){
+            drawPile1.pickDrawCard();
+        }
+
+        System.out.println("\n-------------------------------\nCreate a new player");
+        Player player1 = new Player("SuperTimCraft");
+
+        System.out.println("\n Return 3 cards from our deck");
+        for(int i = 0 ; i <= 2 ; i++){
+
+        }
+
         System.out.println("The card you drew from the pile is :");
         System.out.println("Here is the state of your current board (-- means hidden)");
-
-
     }
 }
