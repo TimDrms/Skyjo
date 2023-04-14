@@ -24,7 +24,7 @@ public class Main {
 
         System.out.println("\n Return 3 cards from our deck");
         for(int i = 0 ; i <= 2 ; i++){
-
+            System.out.println("hi");
         }
     }
 }
