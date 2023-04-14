@@ -16,5 +16,8 @@ public class Main {
             drawPile1.pickDrawCard();
         }
 
+        System.out.println("Aziz");
+
+
     }
 }
