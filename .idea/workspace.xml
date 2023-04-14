@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ method &quot;generateDrawPile&quot; should work. It needs to be tested">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -146,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681474116975</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="+ test">
+      <created>1681479063071</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681479063072</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +170,7 @@
     <MESSAGE value="- Makes comment for a line that doesn't work for the moment" />
     <MESSAGE value="+ Makes test for the Card.java class" />
     <MESSAGE value="+ method &quot;generateDrawPile&quot; should work. It needs to be tested" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ method &quot;generateDrawPile&quot; should work. It needs to be tested" />
+    <MESSAGE value="+ test" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ test" />
   </component>
 </project>
