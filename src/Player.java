@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
     private String player = new String();
     private int nbGamesPlayed, nbGamesWon;
@@ -28,6 +30,13 @@ public class Player {
     }
     public int getNbGamesWon(){
         return this.nbGamesWon;
+    }
+    public String askName(){
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Enter username");
+
+        this.player = myObj.nextLine();  // Read user input
+        return("Username is: " + this.player);  // Output user input
     }
     public String toString(){
         return this.getPlayer() + " has played " + this.getNbGamesPlayed() + " games and won " + this.getNbGamesWon() + " games.";

@@ -17,7 +17,8 @@ public class Main {
         }
 
         System.out.println("\n-------------------------------\nCreate a new player");
-        Player player1 = new Player("SuperTimCraft");
+        Player player1 = new Player();
+        player1.askName();
         System.out.println(player1);
 
         /*System.out.println("\nCreate a new deck");
