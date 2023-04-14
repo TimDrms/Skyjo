@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ method &quot;generateDrawPile&quot; works. 🎉&#10;+ add a test in the Main.java to check if the draw pile is correctly generated.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawPile.java" afterDir="false" />
+    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681204494541</updated>
-      <workItem from="1681204495685" duration="13131000" />
+      <workItem from="1681204495685" duration="14006000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore and start of the project">
       <created>1681205997967</created>
@@ -154,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681475585785</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="+ add a test for picking card from the draw pile.">
+      <created>1681477615135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681477615135</updated>
+    </task>
+    <task id="LOCAL-00016" summary="test">
+      <created>1681477750060</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1681477750060</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +187,8 @@
     <MESSAGE value="+ Makes test for the Card.java class" />
     <MESSAGE value="+ method &quot;generateDrawPile&quot; should work. It needs to be tested" />
     <MESSAGE value="+ method &quot;generateDrawPile&quot; works. &#10;+ add a test in the Main.java to check if the draw pile is correctly generated." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ method &quot;generateDrawPile&quot; works. &#10;+ add a test in the Main.java to check if the draw pile is correctly generated." />
+    <MESSAGE value="+ add a test for picking card from the draw pile." />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
 </project>
