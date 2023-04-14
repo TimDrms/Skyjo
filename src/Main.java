@@ -19,12 +19,12 @@ public class Main {
         System.out.println("\n-------------------------------\nCreate a new player");
         Player player1 = new Player("SuperTimCraft");
 
+        System.out.println("\nCreate a new deck");
+        Deck deck1 = new Deck();
+
         System.out.println("\n Return 3 cards from our deck");
         for(int i = 0 ; i <= 2 ; i++){
 
         }
-
-        System.out.println("The card you drew from the pile is :");
-        System.out.println("Here is the state of your current board (-- means hidden)");
     }
 }
