@@ -6,11 +6,21 @@ public class DrawPile {
     public void generateDrawPile(ArrayList drawPile, Game game){
         int nbPlayers = game.getNbPlayers();
         if(this.drawPile.isEmpty()){
+            for (int value = -2; value <= 12; value++) {
+                int quantity = 10;
+                if (value == -2) {
+                    quantity = 5;
+                } else if (value == 0) {
+                    quantity = 15;
+                }
+                for (int i = 0; i < quantity; i++) {
+                    drawPile.add(new Card(value));
+                }
+            }
+
             // Generate (150 - 12 * nb_player) cards
             // I'm not sure if my variable nbPlayers will work.
-            for(int i = 0; i < (150-12*nbPlayers); i++){
                 // Generate the cards (how to generate all the different cards ???)
-            }
         }
         else{
             System.out.println("The draw pile has already been generated.");
