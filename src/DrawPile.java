@@ -3,8 +3,8 @@ import java.util.Collections;
 
 public class DrawPile {
     ArrayList<Card> drawPile = new ArrayList<>(150);
-    public void generateDrawPile(ArrayList drawPile, Game game){
-        int nbPlayers = game.getNbPlayers();
+    public void generateDrawPile(){
+        //int nbPlayers = game.getNbPlayers();
         if(this.drawPile.isEmpty()){
             for (int value = -2; value <= 12; value++) {
                 int quantity = 10;
@@ -14,7 +14,7 @@ public class DrawPile {
                     quantity = 15;
                 }
                 for (int i = 0; i < quantity; i++) {
-                    drawPile.add(new Card(value));
+                    this.drawPile.add(new Card(value, false));
                 }
             }
 
@@ -34,5 +34,11 @@ public class DrawPile {
             Collections.shuffle(this.drawPile);
             System.out.println(this.drawPile.get(0));
         }
+    }
+    public String toString(){
+        for(int i = 0 ; i<150 ; i++){
+            System.out.println(String.valueOf(drawPile.get(i)));
+        }
+        return "";
     }
 }
