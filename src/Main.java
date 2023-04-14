@@ -11,12 +11,8 @@ public class Main {
         drawPile1.generateDrawPile();
         System.out.println(drawPile1);
 
-        System.out.println("\n Take 3 random cards from the draw pile.");
-        for(int i = 0 ; i<=2 ; i++){
-            drawPile1.pickDrawCard();
-        }
-
-        System.out.println("Aziz");
+        System.out.println("The card you drew from the pile is :");
+        System.out.println("Here is the state of your current board (-- means hidden)");
 
 
     }
