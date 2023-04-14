@@ -3,6 +3,12 @@ import java.util.Collections;
 
 public class DrawPile {
     ArrayList<Card> drawPile = new ArrayList<>(150);
+    public void setDrawPile(ArrayList<Card> drawPile) {
+        this.drawPile = drawPile;
+    }
+    public ArrayList<Card> getDrawPile() {
+        return drawPile;
+    }
     public void generateDrawPile(){
         //int nbPlayers = game.getNbPlayers();
         if(this.drawPile.isEmpty()){
@@ -26,14 +32,16 @@ public class DrawPile {
             System.out.println("The draw pile has already been generated.");
         }
     }
-    public void pickDrawCard(){
+    public Card pickDrawCard(){
         if(drawPile.isEmpty()){
             System.out.println("Error: the draw pile is empty!");
+            // If the drawPile is empty, it should cause an error
         }
         else{
             Collections.shuffle(this.drawPile);
             System.out.println(this.drawPile.get(0));
         }
+        return this.drawPile.get(0);
     }
     public String toString(){
         for(int i = 0 ; i<150 ; i++){
