@@ -29,4 +29,7 @@ public class Player {
     public int getNbGamesWon(){
         return this.nbGamesWon;
     }
+    public String toString(){
+        return this.getPlayer() + " has played " + this.getNbGamesPlayed() + " games and won " + this.getNbGamesWon() + " games.";
+    }
 }
