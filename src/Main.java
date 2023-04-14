@@ -18,15 +18,17 @@ public class Main {
 
         System.out.println("\n-------------------------------\nCreate a new player");
         Player player1 = new Player("SuperTimCraft");
+        System.out.println(player1);
 
-        System.out.println("\nCreate a new deck");
+        /*System.out.println("\nCreate a new deck");
         Deck deck1 = new Deck();
+        deck1.initializeDeck(drawPile1);
+        System.out.println(deck1);
 
         System.out.println("\n Return 3 cards from our deck");
         for(int i = 0 ; i <= 2 ; i++){
             System.out.println("hi");
-        }
+        }*/
 
-        System.out.println("Aziz");
     }
 }
