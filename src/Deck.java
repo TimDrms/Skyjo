@@ -19,7 +19,7 @@ public class Deck {
         for(int i = 0; i<4; i++){
             for(int j = 0; j<3; j++){
                 Collections.shuffle(deck);
-                this.deck.get(i).set(j, value); // Insère la carte dans l'emplacement [i][j] du deck.
+                //this.deck.get(i).set(j, value); // Insère la carte dans l'emplacement [i][j] du deck.
             }
         }
         return this.deck;
