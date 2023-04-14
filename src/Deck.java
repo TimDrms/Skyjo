@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck {
-    ArrayList<ArrayList<Card>> deck = new ArrayList<>(12); // It'll be used for the grid of 4*3 that each player has when he wants to play the game.
+public class Deck extends CardPile{
     private int scoreRound; // Score of the round of the player who owns the deck.
     public void setScoreRound(int scoreRound){
         this.scoreRound = scoreRound;
@@ -22,7 +21,7 @@ public class Deck {
                 //this.deck.get(i).set(j, value); // Insère la carte dans l'emplacement [i][j] du deck.
             }
         }
-        return this.deck;
+        return this.cardPile;
     }
     public void returnCard(Card card){
         if(card.getIsReturded() == false){

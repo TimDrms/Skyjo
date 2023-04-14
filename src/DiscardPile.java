@@ -1,3 +1,3 @@
-public class DiscardPile {
+public class DiscardPile extends CardPile{
 
 }
