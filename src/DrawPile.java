@@ -26,7 +26,7 @@ public class DrawPile {
             System.out.println("The draw pile has already been generated.");
         }
     }
-    public void pickDrawCard(ArrayList drawPile){
+    public void pickDrawCard(){
         if(drawPile.isEmpty()){
             System.out.println("Error: the draw pile is empty!");
         }
