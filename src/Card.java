@@ -8,6 +8,11 @@ public class Card {
     Card(int value){
         this.value = value;
     }
+    Card(int value, boolean isReturned){
+        this.value = value;
+        this.isReturned = isReturned;
+
+    }
     public void setValue(int value){
         this.value = value;
     }
@@ -19,5 +24,16 @@ public class Card {
     }
     public boolean getIsReturded(){
         return this.isReturned;
+    }
+
+    @Override
+    public String toString() {
+        if(this.isReturned == false){
+            return "The value of the card is " + this.value + " and this card isn't returned";
+        }
+        else{
+            return "The value of the card is " + this.value + " and this card is returned";
+        }
+
     }
 }

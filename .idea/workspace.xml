@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ add the setters and getters for the class Player.">
+    <list default="true" id="928bd890-2910-4f57-8c58-788783fd4cc7" name="Changes" comment="+ added method &quot;generateDrawPile&quot;. For the moment it doesn't work, because I have to find how to correctly pick a random card (because for the moment, there are not generated).&#10;+ added method &quot;pickDrawCard&quot;. This method should work, it prints a random card of the draw pile. We'll have to change the print by the thing that will interest us (for example, adding it in the deck).">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrawPile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrawPile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681204494541</updated>
-      <workItem from="1681204495685" duration="4497000" />
+      <workItem from="1681204495685" duration="9408000" />
     </task>
     <task id="LOCAL-00001" summary="Add gitignore and start of the project">
       <created>1681205997967</created>
@@ -96,7 +100,28 @@
       <option name="project" value="LOCAL" />
       <updated>1681215962162</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="+ add a new method : returnCard. if the value of getIsReturned, it will return the card of the deck, so the player will be able to see the value of his card (only one).">
+      <created>1681330726869</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681330726869</updated>
+    </task>
+    <task id="LOCAL-00008" summary="+ only added the variable &quot;nbPlayers&quot; and the setter &amp; getter for this variable">
+      <created>1681331817711</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681331817711</updated>
+    </task>
+    <task id="LOCAL-00009" summary="+ added method &quot;generateDrawPile&quot;. For the moment it doesn't work, because I have to find how to correctly pick a random card (because for the moment, there are not generated).&#10;+ added method &quot;pickDrawCard&quot;. This method should work, it prints a random card of the draw pile. We'll have to change the print by the thing that will interest us (for example, adding it in the deck).">
+      <created>1681331973124</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681331973124</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +134,9 @@
     <MESSAGE value="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work." />
     <MESSAGE value="+ add the setter and getter for the score.&#10;+ add method for initializeDeck. It needs to be updated by changing values when the class DrawPile will work. It doesn't work for the moment." />
     <MESSAGE value="+ add the setters and getters for the class Player." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ add the setters and getters for the class Player." />
+    <MESSAGE value="+ add a new method : returnCard. if the value of getIsReturned, it will return the card of the deck, so the player will be able to see the value of his card (only one)." />
+    <MESSAGE value="+ only added the variable &quot;nbPlayers&quot; and the setter &amp; getter for this variable" />
+    <MESSAGE value="+ added method &quot;generateDrawPile&quot;. For the moment it doesn't work, because I have to find how to correctly pick a random card (because for the moment, there are not generated).&#10;+ added method &quot;pickDrawCard&quot;. This method should work, it prints a random card of the draw pile. We'll have to change the print by the thing that will interest us (for example, adding it in the deck)." />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added method &quot;generateDrawPile&quot;. For the moment it doesn't work, because I have to find how to correctly pick a random card (because for the moment, there are not generated).&#10;+ added method &quot;pickDrawCard&quot;. This method should work, it prints a random card of the draw pile. We'll have to change the print by the thing that will interest us (for example, adding it in the deck)." />
   </component>
 </project>
