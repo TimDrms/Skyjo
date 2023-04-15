@@ -17,7 +17,7 @@ public class Deck extends CardPile{
         A FAIRE */
         for(int i = 0; i<4; i++){
             for(int j = 0; j<3; j++){
-                Collections.shuffle(drawPile.getDrawPile());
+                //Collections.shuffle(drawPile.getDrawPile());
                 //this.deck.get(i).set(j,drawPile.getDrawPile().add(drawPile.pickDrawCard())); // Insère la carte dans l'emplacement [i][j] du deck.
             }
         }

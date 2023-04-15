@@ -1,28 +1,33 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.*;
+import java.util.Scanner;
 
 public class DrawPile extends CardPile{
-    public void generateDrawPile(){
+    public void generateDrawPile() throws IOException {
         //int nbPlayers = game.getNbPlayers();
         if(this.cardPile.isEmpty()){
-            for (int value = -2; value <= 12; value++) {
-                int quantity = 10;
-                if (value == -2) {
-                    quantity = 5;
-                } else if (value == 0) {
-                    quantity = 15;
-                }
-                for (int i = 0; i < quantity; i++) {
-                    this.cardPile.add(new Card(value, false));
-                }
-            }
+            Scanner scan = new Scanner(System.in);
+            File myObj = new File("./data/cards.txt");
+            Scanner myReader = new Scanner(myObj);
 
-            // Generate (150 - 12 * nb_player) cards
-            // I'm not sure if my variable nbPlayers will work.
-                // Generate the cards (how to generate all the different cards ???)
-        }
-        else{
-            System.out.println("The draw pile has already been generated.");
+            while (myReader.hasNextInt()){
+                int value = myReader.nextInt();
+                if(myReader.hasNextInt()){
+                    int amount = myReader.nextInt();
+                    for (int i = 0; i < amount; i++) {
+                        this.cardPile.add(new Card(value, false));
+                    }
+                }
+           }
+            myReader.close();
+
+
+
+                //
+            }
+       else{
+          System.out.println("The draw pile has already been generated.");
         }
     }
     public void pickDrawCard(){
@@ -40,4 +45,5 @@ public class DrawPile extends CardPile{
         }
         return "";
     }
+
 }
