@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -16,7 +17,7 @@ public class Game {
     public Round getActualRound(){
         return this.actualRound;
     }
-    public Round initializeGame(int nbPlayers){
+    public Round initializeGame(int nbPlayers) throws IOException {
         /*
         Hasn't been tested yet.
          */
