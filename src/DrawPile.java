@@ -1,52 +1,49 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.io.*;
+import java.util.Scanner;
 
-public class DrawPile {
-    ArrayList<Card> drawPile = new ArrayList<>(150);
-    public void setDrawPile(ArrayList<Card> drawPile) {
-        this.drawPile = drawPile;
-    }
-    public ArrayList<Card> getDrawPile() {
-        return drawPile;
-    }
-    public void generateDrawPile(){
+public class DrawPile extends CardPile{
+    public void generateDrawPile() throws IOException {
         //int nbPlayers = game.getNbPlayers();
-        if(this.drawPile.isEmpty()){
-            for (int value = -2; value <= 12; value++) {
-                int quantity = 10;
-                if (value == -2) {
-                    quantity = 5;
-                } else if (value == 0) {
-                    quantity = 15;
-                }
-                for (int i = 0; i < quantity; i++) {
-                    this.drawPile.add(new Card(value, false));
-                }
-            }
+        if(this.cardPile.isEmpty()){
+            Scanner scan = new Scanner(System.in);
+            File myObj = new File("./data/cards.txt");
+            Scanner myReader = new Scanner(myObj);
 
-            // Generate (150 - 12 * nb_player) cards
-            // I'm not sure if my variable nbPlayers will work.
-                // Generate the cards (how to generate all the different cards ???)
-        }
-        else{
-            System.out.println("The draw pile has already been generated.");
+            while (myReader.hasNextInt()){
+                int value = myReader.nextInt();
+                if(myReader.hasNextInt()){
+                    int amount = myReader.nextInt();
+                    for (int i = 0; i < amount; i++) {
+                        this.cardPile.add(new Card(value, false));
+                    }
+                }
+           }
+            myReader.close();
+
+
+
+                //
+            }
+       else{
+          System.out.println("The draw pile has already been generated.");
         }
     }
-    public Card pickDrawCard(){
-        if(drawPile.isEmpty()){
+    public void pickDrawCard(){
+        if(cardPile.isEmpty()){
             System.out.println("Error: the draw pile is empty!");
-            // If the drawPile is empty, it should cause an error
         }
         else{
-            Collections.shuffle(this.drawPile);
-            System.out.println(this.drawPile.get(0));
+            Collections.shuffle(this.cardPile);
+            System.out.println(this.cardPile.get(0));
         }
-        return this.drawPile.get(0);
     }
     public String toString(){
         for(int i = 0 ; i<150 ; i++){
-            System.out.println(String.valueOf(drawPile.get(i)));
+            System.out.println(String.valueOf(cardPile.get(i)));
         }
         return "";
     }
+
 }
