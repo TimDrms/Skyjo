@@ -5,6 +5,14 @@ public class Game {
     private int nbPlayers;
     ArrayList<Player> players = new ArrayList<>();
     private Round actualRound;
+    Game(){
+        this.nbPlayers = 2;
+        this.actualRound = null;
+    }
+    Game(int nbPlayers){
+        this.nbPlayers = nbPlayers;
+        this.actualRound = null;
+    }
     public void setNbPlayers(int nb){
         this.nbPlayers = nb;
     }
