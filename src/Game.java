@@ -13,18 +13,52 @@ public class Game {
         this.nbPlayers = nbPlayers;
         this.actualRound = null;
     }
+
+    /**
+     * Setter for the number of players that will play
+     *
+     * @param nb the number of players that will play
+     */
     public void setNbPlayers(int nb){
         this.nbPlayers = nb;
     }
+
+    /**
+     * Getter that return the number of players
+     *
+     * @return the number of players
+     */
     public int getNbPlayers(){
         return this.nbPlayers;
     }
+
+    /**
+     * Setter in order to know in which round we are
+     *
+     * @param actualRound the round that we play
+     */
     public void setActualRound(Round actualRound) {
         this.actualRound = actualRound;
     }
+
+    /**
+     * Getter that return the round that we are playing
+     *
+     * @return the round that we play
+     */
     public Round getActualRound(){
         return this.actualRound;
     }
+
+    /**
+     * This method will initialize the game.
+     * When we want to start a new game, this method will be called and initialize all the things that we need.
+     * So we will create a new draw pile, new players, new decks, etc.
+     * At the end, we need to return a new round, so we can play a game.
+     *
+     * @param nbPlayers the number of players that will play the game
+     * @return new round, so we can do the first round of the game
+     */
     public Round initializeGame(int nbPlayers) throws IOException {
         /*
         Hasn't been tested yet.
@@ -40,6 +74,12 @@ public class Game {
         }
         return new Round();
     }
+
+    /**
+     * This method should be called at the end of a game.
+     * The goal is to see if a player has more than 100 points. If so, the game should end.
+     * If there is no player with more than 100 points, we'll have to create a new round in this game.
+     */
     public void stateOfTheGame(){
         /*
         Hasn't been tested yet.
