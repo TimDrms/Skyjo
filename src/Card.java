@@ -13,20 +13,52 @@ public class Card {
         this.isReturned = isReturned;
 
     }
+
+    /**
+     * Setter that will set the value of a card.
+     * The value on the card must be between -2 and 12.
+     *
+     * @param value the value of the card
+     */
     public void setValue(int value){
-        this.value = value;
+        if(value >= -2 && value <= 12){
+            this.value = value;
+        }
     }
+
+    /**
+     * Getter that will return the value of a card
+     *
+     * @return the value of the card
+     */
     public int getValue(){
         return this.value;
     }
+
+    /**
+     * Setter that will set if a card is returned or not
+     *
+     * @param isReturned boolean that say true if the card is returned, and false if the card isn't returned
+     */
     public void setIsReturned(boolean isReturned){
         this.isReturned = isReturned;
     }
-    public boolean getIsReturded(){
+
+    /**
+     * Getter that will return if a card is returned or not
+     *
+     * @return a boolean (true/false) that will say if a card is return or not
+     */
+    public boolean getIsReturned(){
         return this.isReturned;
     }
 
+
     @Override
+    /**
+     * toString method that is used when we want to print a card.
+     * It will say the value of the card and if the card is returned or not.
+     */
     public String toString() {
         if(this.isReturned == false){
             return "The value of the card is " + this.value + " and this card isn't returned";
