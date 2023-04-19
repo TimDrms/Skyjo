@@ -51,6 +51,24 @@ public class Game {
     }
 
     /**
+     * Setter that will set the ArrayList players, which contains every player in a game.
+     *
+     * @param players the ArrayList of players
+     */
+    public void setPlayers(ArrayList<Player> players){
+        this.players = players;
+    }
+
+    /**
+     * Getter that will return the ArrayList containing all the players in a game.
+     *
+     * @return the ArrayList containing all the players in a game.
+     */
+    public ArrayList getPlayers(){
+        return this.players;
+    }
+
+    /**
      * This method will initialize the game.
      * When we want to start a new game, this method will be called and initialize all the things that we need.
      * So we will create a new draw pile, new players, new decks, etc.
