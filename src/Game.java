@@ -94,19 +94,18 @@ public class Game {
     }
 
     /**
-     * This method should be called at the end of a game.
+     * This method should be called at the end of a round.
      * The goal is to see if a player has more than 100 points. If so, the game should end.
      * If there is no player with more than 100 points, we'll have to create a new round in this game.
      */
     public void stateOfTheGame(){
         /*
-        Hasn't been tested yet.
+        Il faut prendre en compte la situation où il y a plusieurs vainqueurs.
          */
         boolean isFinished = false;
         String winner = new String();
         for(Player player : players){
             if(player.getScoreGame() >= 100){
-                System.out.println("The game is finished!");
                 isFinished = true;
                 winner = player.getPlayer();
             }
