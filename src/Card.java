@@ -24,6 +24,9 @@ public class Card {
         if(value >= -2 && value <= 12){
             this.value = value;
         }
+        else{
+            System.out.println("Error: the value must be between -2 and 12!");
+        }
     }
 
     /**
