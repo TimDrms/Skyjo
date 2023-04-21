@@ -125,17 +125,17 @@ public class Game {
         boolean isFinished = false;
         String winner = new String();
         String draw = new String();
-        int lowestScore = 99;
+        int lowestScore = 1000;
 
         for(Player player : players){
             if(player.getScoreGame() >= 100){
                 isFinished = true;
             }
-            else if(player.getScoreGame() <= lowestScore){
+            if(player.getScoreGame() <= lowestScore){
                 winner = player.getPlayer();
                 lowestScore = player.getScoreGame();
             }
-            else if(player.getScoreGame() == lowestScore){
+            if(player.getScoreGame() == lowestScore){
                 draw = player.getPlayer();
             }
         }
