@@ -47,11 +47,16 @@ public class Main {
         System.out.println(game1.getNbPlayers()); // Get the number of players in the game
 
         ArrayList<Player> players = game1.getPlayers(); // Create an ArrayList with all the players inside of it
-        Player ModifyPlayer = players.get(1); // Copy one of the player of the Arraylist
-        ModifyPlayer.setScoreGame(103); // Set the score of that player to 103
-        players.set(1, ModifyPlayer); // Copy that player inside the ArrayList, so the changes will be applied
+        Player modifyPlayer = players.get(1); // Copy one of the player of the Arraylist
+        modifyPlayer.setScoreGame(103); // Set the score of that player to 103
+        players.set(1, modifyPlayer); // Copy that player inside the ArrayList, so the changes will be applied
+
+        modifyPlayer = players.get(2);
+        modifyPlayer.setScoreGame(38);
+        players.set(2, modifyPlayer);
+
         for(Player player : players){
-            System.out.println(player.getScoreGame()); // Show the score of every player.
+            System.out.println(player.getPlayer() + " has " + player.getScoreGame() + " points."); // Show the score of every player.
         }
 
         game1.stateOfTheGame();
