@@ -98,14 +98,14 @@ public class Game {
      * This method will simply ask how many people wants to play the game.
      * It should be called during the initialization of the game.
      *
-     * @return String, a sentence that says how many people will play.
+     * @return int, the number of players
      */
-    public String howMuchPlayers(){
+    public int howMuchPlayers(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("How many people will play?"); // Asks how many people will play
         String nbPlayers = myObj.nextLine();  // Read user input
         this.setNbPlayers(Integer.valueOf(nbPlayers)); // Set the correct amount of players
-        return "There will be " + Integer.valueOf(nbPlayers) + " players in this game.";
+        return Integer.valueOf(nbPlayers);
     }
 
     /**
