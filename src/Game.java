@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Game {
     private int nbPlayers;
@@ -74,15 +75,15 @@ public class Game {
      * So we will create a new draw pile, new players, new decks, etc.
      * At the end, we need to return a new round, so we can play a game.
      *
-     * @param nbPlayers the number of players that will play the game
      * @return new round, so we can do the first round of the game
      */
-    public Round initializeGame(int nbPlayers) throws IOException {
+    public Round initializeGame() throws IOException {
         /*
-        Hasn't been tested yet.
+        Hasn't been correctly tested yet.
          */
         DrawPile drawPile = new DrawPile();
         drawPile.generateDrawPile();
+        howMuchPlayers();
         for(int i = 0 ; i < nbPlayers ; i++){
             Player player = new Player();
             player.askName();
@@ -91,6 +92,20 @@ public class Game {
             deck.initializeDeck(drawPile);
         }
         return new Round();
+    }
+
+    /**
+     * This method will simply ask how many people wants to play the game.
+     * It should be called during the initialization of the game.
+     *
+     * @return String, a sentence that says how many people will play.
+     */
+    public String howMuchPlayers(){
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("How many people will play?"); // Asks how many people will play
+        String nbPlayers = myObj.nextLine();  // Read user input
+        this.setNbPlayers(Integer.valueOf(nbPlayers)); // Set the correct amount of players
+        return "There will be " + Integer.valueOf(nbPlayers) + " players in this game.";
     }
 
     /**

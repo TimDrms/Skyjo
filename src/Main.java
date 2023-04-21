@@ -38,12 +38,8 @@ public class Main {
         System.out.println("\n-----------------------\nStart a new game with n players.");
         Game game1 = new Game();
 
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("How many people will play?"); // Asks how many people will play
-        String nbPlayers = myObj.nextLine();  // Read user input
-        game1.setNbPlayers(Integer.valueOf(nbPlayers)); // Set the correct amount of players
+        game1.initializeGame();
 
-        game1.initializeGame(Integer.valueOf(nbPlayers)); // Initialize the game and transform the var nbPlayers into an int
         System.out.println(game1.getNbPlayers()); // Get the number of players in the game
 
         ArrayList<Player> players = game1.getPlayers(); // Create an ArrayList with all the players inside of it
