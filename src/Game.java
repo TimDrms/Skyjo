@@ -97,19 +97,34 @@ public class Game {
      * This method should be called at the end of a round.
      * The goal is to see if a player has more than 100 points. If so, the game should end.
      * If there is no player with more than 100 points, we'll have to create a new round in this game.
+     *
+     * Variable isFinished : This boolean have to be defined to true if there is a winner.
+     * Variable winner : Takes the username of the winner.
+     * Variable draw : Takes the username of both players that are in a draw i guess.
+     * Variable lowestScore : Save the score of the player that has the lowest score.
      */
     public void stateOfTheGame(){
         /*
-        Il faut prendre en compte la situation où il y a plusieurs vainqueurs.
+        Il faut prendre en compte la situation où il y a égalité qui ne fonctionne pas.
          */
         boolean isFinished = false;
         String winner = new String();
+        String draw = new String();
+        int lowestScore = 99;
+
         for(Player player : players){
             if(player.getScoreGame() >= 100){
                 isFinished = true;
+            }
+            else if(player.getScoreGame() <= lowestScore){
                 winner = player.getPlayer();
+                lowestScore = player.getScoreGame();
+            }
+            else if(player.getScoreGame() == lowestScore){
+                draw = player.getPlayer();
             }
         }
+
         if(isFinished == true){
             System.out.println("Game ended! The winner is " + winner + "! Congratz!");
         }
