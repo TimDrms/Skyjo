@@ -27,6 +27,17 @@ public class Main {
             drawPile1.pickDrawCard();
         }
 
+        System.out.println("-----------------------------\nCreate & Add 5 cards in the discard pile, then print the cards");
+        DiscardPile discardPile = new DiscardPile();
+        for(int i = 0 ; i<5 ; i++){
+            discardPile.addDiscardPile(drawPile1.pickDrawCard());
+        }
+        System.out.println(discardPile);
+
+        System.out.println("\nPick the card that is in top of the discard pile, and print the discard pile.");
+        discardPile.pickDiscardCard();
+        System.out.println(discardPile);
+
         System.out.println("\n-------------------------------\nCreate a new player");
         Player player1 = new Player();
         player1.askName();
