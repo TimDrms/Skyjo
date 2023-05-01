@@ -65,7 +65,7 @@ public class Game {
      *
      * @return the ArrayList containing all the players in a game.
      */
-    public ArrayList getPlayers(){
+    public ArrayList<Player> getPlayers(){
         return this.players;
     }
 
@@ -77,21 +77,17 @@ public class Game {
      *
      * @return new round, so we can do the first round of the game
      */
-    public Round initializeGame() throws IOException {
+    public void initializeGame() throws IOException {
         /*
         Hasn't been correctly tested yet.
          */
-        DrawPile drawPile = new DrawPile();
-        drawPile.generateDrawPile();
         howMuchPlayers();
         for(int i = 0 ; i < nbPlayers ; i++){
             Player player = new Player();
             player.askName();
-            players.add(player);
-            Deck deck = new Deck();
-            deck.initializeDeck(drawPile);
+            this.players.add(player);
         }
-        return new Round();
+        this.actualRound = new Round(this);
     }
 
     /**
@@ -144,7 +140,7 @@ public class Game {
             System.out.println("Game ended! The winner is " + winner + "! Congratz!");
         }
         else{
-            new Round();
+            //new Round();
         }
     }
 }

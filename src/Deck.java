@@ -42,13 +42,13 @@ public class Deck extends CardPile{
                 //Collections.shuffle(drawPile.getDrawPile());
                 //this.cardPile.set(i,drawPile.getDrawPile().add(drawPile.pickDrawCard()));
             //Pick the first 12 cards in the mixed drawPile
-            this.cardPile.add(drawPile.pickDrawCard());
+            this.getCardPile().add(drawPile.pickDrawCard());
             //Delete those 12 cards from the drawpile
            // drawPile
                 // Insère la carte dans l'emplacement [i][j] du deck.
 
         }
-        return this.cardPile;
+        return this.getCardPile();
     }
 
     /**

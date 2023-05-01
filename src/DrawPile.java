@@ -7,7 +7,7 @@ public class DrawPile extends CardPile{
     public void generateDrawPile() throws IOException {
         //int nbPlayers = game.getNbPlayers();
         //Verify if the draw pile has already been generated
-        if(this.cardPile.isEmpty()){
+        if(this.getCardPile().isEmpty()){
             //Open the file cards.txt containing the number of each card to initialize
             Scanner scan = new Scanner(System.in);
             File myObj = new File("./data/cards.txt");
@@ -19,7 +19,7 @@ public class DrawPile extends CardPile{
                 if(myReader.hasNextInt()){
                     int quantity = myReader.nextInt();
                     for (int i = 0; i < quantity; i++) {
-                        this.cardPile.add(new Card(value, false));
+                        this.getCardPile().add(new Card(value, false));
                     }
                 }
            }
@@ -33,15 +33,15 @@ public class DrawPile extends CardPile{
         }
     }
     public Card pickDrawCard(){
-        if(cardPile.isEmpty()){
+        if(getCardPile().isEmpty()){
             System.out.println("Error: the draw pile is empty!");
             return new Card();
         }
         else{
-            Collections.shuffle(this.cardPile);
+            Collections.shuffle(this.getCardPile());
             Card drawncard = new Card();
-            drawncard = this.cardPile.get(0);
-            this.cardPile.remove(0);
+            drawncard = this.getCardPile().get(0);
+            this.getCardPile().remove(0);
             return drawncard;
         }
     }

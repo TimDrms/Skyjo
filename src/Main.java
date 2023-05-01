@@ -61,6 +61,7 @@ public class Main {
         System.out.println(game1.getNbPlayers()); // Get the number of players in the game
 
         ArrayList<Player> players = game1.getPlayers(); // Create an ArrayList with all the players inside of it
+
         Player modifyPlayer = players.get(1); // Copy one of the player of the Arraylist
         modifyPlayer.setScoreGame(103); // Set the score of that player to 103
         players.set(1, modifyPlayer); // Copy that player inside the ArrayList, so the changes will be applied
@@ -69,9 +70,15 @@ public class Main {
         modifyPlayer.setScoreGame(38);
         players.set(2, modifyPlayer);
 
-        for(Player player : players){
+        for(Player player : game1.getPlayers()){
             System.out.println(player.getPlayer() + " has " + player.getScoreGame() + " points."); // Show the score of every player.
         }
+
+        for(Deck deck : game1.getActualRound().getDecks()){
+            System.out.println(deck.getCardPile()); // Show the score of every player.
+        }
+
+        System.out.println(game1.getActualRound().getDrawpile());
 
         game1.stateOfTheGame();
 
