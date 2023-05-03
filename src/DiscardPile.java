@@ -49,6 +49,16 @@ public class DiscardPile extends CardPile{
         return cardPicked;
     }
 
+    /**
+     * This method will return the card that is on top of the discard pile.
+     * It can be useful when we want to see what card is on top because we can pick it.
+     *
+     * @return the Card that is on top of the discard pile
+     */
+    public Card showTheTopCard(){
+        return this.discardPile.get(this.discardPile.size() - 1);
+    }
+
     @Override
     public String toString() {
         String value = "";
