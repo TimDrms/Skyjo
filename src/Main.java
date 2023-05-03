@@ -66,9 +66,9 @@ public class Main {
         modifyPlayer.setScoreGame(103); // Set the score of that player to 103
         players.set(1, modifyPlayer); // Copy that player inside the ArrayList, so the changes will be applied
 
-        modifyPlayer = players.get(2);
+        modifyPlayer = players.get(0);
         modifyPlayer.setScoreGame(38);
-        players.set(2, modifyPlayer);
+        players.set(0, modifyPlayer);
 
         for(Player player : game1.getPlayers()){
             System.out.println(player.getPlayer() + " has " + player.getScoreGame() + " points."); // Show the score of every player.
@@ -79,8 +79,13 @@ public class Main {
         }
 
         System.out.println(game1.getActualRound().getDrawpile());
-
         game1.stateOfTheGame();
+
+        System.out.println("\n-------------------------------------\nCreating a new round");
+        Round round1 = new Round(game1);
+        System.out.println("\n-----------------------------------\nTest for the method chooseBetweenDrawDiscard");
+        round1.chooseBetweenDrawDiscard();
+
 
     }
 }
