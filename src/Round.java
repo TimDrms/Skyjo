@@ -25,6 +25,16 @@ public class Round {
         return decks;
     }
 
+    /**
+     * Thid method will return a specific deck from the ArrayList decks, which contains several decks.
+     *
+     * @param i : position of the deck in the ArrayList
+     * @return deck
+     */
+    public Deck getDeck(int i){
+        return decks.get(i);
+    }
+
     public DrawPile getDrawpile() {
         return drawpile;
     }
@@ -49,8 +59,10 @@ public class Round {
         choice = myObj.nextInt();  // Read user input
 
         if(choice == 1){
-            System.out.println(drawpile.pickDrawCard());
-            chooseBetweenDropReplace();
+            Card drawnCard = new Card();
+            drawnCard = drawpile.pickDrawCard();
+            System.out.println(drawnCard);
+            chooseBetweenDropReplace(drawnCard);
         }
         else if(choice == 2){
             replaceCard();
@@ -61,8 +73,33 @@ public class Round {
         }
     }
 
-    public void chooseBetweenDropReplace(){
+    /**
+     * In this method, you will choose between dropping a card that you have drawn, or replacing a card by this card that you have drawn.
+     * If you choose to drop it, then we will add this card to the discard pile and the player would have to return one of his card.
+     * If you choose to replace it by one of the card of your deck, we will call the method replaceCard to do it.
+     *
+     * @param c : the card that has been drawn by the player and that could be replaced by one of the card of your deck.
+     */
+    public void chooseBetweenDropReplace(Card c){
+        int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) or do you want to replace it by a card of your deck ? (say 2)");
+        choice = myObj.nextInt();  // Read user input
 
+        if(choice == 1){
+            discardpile.addDiscardPile(c);
+            System.out.println("The card is now in the discard pile.");
+            System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
+            choice = myObj.nextInt();
+            // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
+        }
+        else if(choice == 2){
+            replaceCard();
+        }
+        else{
+            System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
+            chooseBetweenDropReplace(c);
+        }
     }
 
     public void replaceCard(){
