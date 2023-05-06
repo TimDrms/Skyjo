@@ -113,8 +113,10 @@ public class Game {
      * Variable winner : Takes the username of the winner.
      * Variable draw : Takes the username of both players that are in a draw i guess.
      * Variable lowestScore : Save the score of the player that has the lowest score.
+     *
+     * @return true if the game is finished, or false if the game is not finished.
      */
-    public void stateOfTheGame(){
+    public boolean stateOfTheGame(){
         /*
         Il faut prendre en compte la situation où il y a égalité qui ne fonctionne pas.
          */
@@ -142,5 +144,6 @@ public class Game {
         else{
             //new Round();
         }
+        return isFinished;
     }
 }
