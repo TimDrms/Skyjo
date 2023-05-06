@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Deck extends CardPile{
     private int scoreRound; // Score of the round of the player who owns the deck.
@@ -31,22 +30,8 @@ public class Deck extends CardPile{
      * @return an ArrayList with 12 cards. But we won't know the value of those 12 cards because there are still hidden at the beginning of the game
      */
     public ArrayList initializeDeck(DrawPile drawPile){
-        /* A FAIRE
-        Initialiser les 12 cartes du jeu de manière aléatoire
-        Il faudra modifier dans le Collections.shuffle() ce qu'il y a à l'intérieur comme variable.
-        Actuellement c'est "deck", mais ça devra être la pile de carte dans DrawPile.
-        Et la valeur à ajouter dans deck (qui s'appelle actuellement value),
-        devra être une carte au hasard de cette pile.
-        A FAIRE */
         for(int i = 0; i<12; i++){
-                //Collections.shuffle(drawPile.getDrawPile());
-                //this.cardPile.set(i,drawPile.getDrawPile().add(drawPile.pickDrawCard()));
-            //Pick the first 12 cards in the mixed drawPile
             this.getCardPile().add(drawPile.pickDrawCard());
-            //Delete those 12 cards from the drawpile
-           // drawPile
-                // Insère la carte dans l'emplacement [i][j] du deck.
-
         }
         return this.getCardPile();
     }
