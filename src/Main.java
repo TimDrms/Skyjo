@@ -95,6 +95,7 @@ public class Main {
             while(!roundOver){
                 Round round = new Round(game);
                 System.out.println("slt");
+                System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
                     System.out.println("slt");
                     round.chooseBetweenDrawDiscard(game.players.get(i));

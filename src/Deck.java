@@ -71,4 +71,19 @@ public class Deck extends CardPile{
             System.out.println("Error: this card has already been returned.");
         }
     }
+
+    public String toString(){
+        for (int j = 0; j < 3; j++) {
+            System.out.println("");
+            System.out.print("|");
+            for (int i = 0; i < 4; i++) {
+                if(this.getCardPile().get(i).getIsReturned()){
+                    System.out.print(" " + this.getCardPile().get(i).getValue() + " |");
+                }else{
+                    System.out.print(" X |");
+                }
+            }
+        }
+        return "";
+    }
 }
