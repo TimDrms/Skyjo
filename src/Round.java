@@ -25,16 +25,6 @@ public class Round {
         return decks;
     }
 
-    /**
-     * Thid method will return a specific deck from the ArrayList decks, which contains several decks.
-     *
-     * @param i : position of the deck in the ArrayList
-     * @return deck
-     */
-    public Deck getDeck(int i){
-        return decks.get(i);
-    }
-
     public DrawPile getDrawpile() {
         return drawpile;
     }
@@ -52,7 +42,7 @@ public class Round {
      * If he chooses to pick a card from the card pile, we will show the card and call the method chooseBetweenDropReplace.
      * If he chooses to pick a card from the discard pile, we will directly call the method replaceCard.
      */
-    public void chooseBetweenDrawDiscard(){
+    public void chooseBetweenDrawDiscard(Player p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Do you want to pick a random card from the pile card (say 1) or the card that is on top of the discard pile, which is " + discardpile.showTheTopCard() + " (say 2)");
@@ -69,7 +59,7 @@ public class Round {
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
-            chooseBetweenDrawDiscard();
+            chooseBetweenDrawDiscard(p);
         }
     }
 
@@ -92,6 +82,7 @@ public class Round {
             System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
             choice = myObj.nextInt();
             // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
+            // getDecks().get(0).getCardPile().get(choice);
         }
         else if(choice == 2){
             replaceCard();
