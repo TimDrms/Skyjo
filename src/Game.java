@@ -105,40 +105,6 @@ public class Game {
     }
 
     /**
-     * This method allow to easily pick a specific card of a deck
-     * We take the round in progress, then the deck of the player in parameter
-     * and finally the number of the card we want to pick.
-     * @param player int, number of the player (place in the ArrayList of players,
-     *               in the same order as the ArrayList of Decks)
-     * @param nb int, position of the card in the deck
-     * @return Card, the card we wanted to pick
-     */
-    public Card getCardFromDeck(int player, int nb){
-        return this.getActualRound().getDecks().get(player).getCardPile().get(nb);
-    }
-
-    /**
-     * This method check if a round is finished, that means if all cards of a deck are returned
-     * For all players, we count the number of cards return, if this number is equal 12, then finish is true
-     * @return boolean, false if the game must continue, true if the game must end
-     */
-    public boolean checkEndOfRound(){
-        boolean finish=false;
-        for(int j=0; j<this.getNbPlayers();j++){
-            int nbReturn=0;
-            for(int i=0; i<12; i++){
-                if(getCardFromDeck(j,i).getIsReturned()){
-                    nbReturn++;
-                }
-            }
-            if(nbReturn==12){
-                finish=true;
-            }
-        }
-        return finish;
-    }
-
-    /**
      * This method should be called at the end of a round.
      * The goal is to see if a player has more than 100 points. If so, the game should end.
      * If there is no player with more than 100 points, we'll have to create a new round in this game.

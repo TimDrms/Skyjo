@@ -98,4 +98,38 @@ public class Round {
     public void replaceCard(){
 
     }
+
+    /**
+     * This method allow to easily pick a specific card of a deck
+     * We take the round in progress, then the deck of the player in parameter
+     * and finally the number of the card we want to pick.
+     * @param player int, number of the player (place in the ArrayList of players,
+     *               in the same order as the ArrayList of Decks)
+     * @param nb int, position of the card in the deck
+     * @return Card, the card we wanted to pick
+     */
+    public Card getCardFromDeck(int player, int nb){
+        return getDecks().get(player).getCardPile().get(nb);
+    }
+
+    /**
+     * This method check if a round is finished, that means if all cards of a deck are returned
+     * For all players, we count the number of cards return, if this number is equal 12, then finish is true
+     * @return boolean, false if the game must continue, true if the game must end
+     */
+    public boolean checkEndOfRound(){
+        boolean finish=false;
+        for(int j=0; j<decks.size();j++){
+            int nbReturn=0;
+            for(int i=0; i<12; i++){
+                if(getCardFromDeck(j,i).getIsReturned()){
+                    nbReturn++;
+                }
+            }
+            if(nbReturn==12){
+                finish=true;
+            }
+        }
+        return finish;
+    }
 }
