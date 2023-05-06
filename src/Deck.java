@@ -77,8 +77,8 @@ public class Deck extends CardPile{
             System.out.println("");
             System.out.print("|");
             for (int i = 0; i < 4; i++) {
-                if(this.getCardPile().get(i).getIsReturned()){
-                    System.out.print(" " + this.getCardPile().get(i).getValue() + " |");
+                if(this.getCardPile().get((4*j)+i).getIsReturned()){
+                    System.out.print(" " + this.getCardPile().get((4*j)+i).getValue() + " |");
                 }else{
                     System.out.print(" X |");
                 }
