@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
+
 
 public class Game {
     private int nbPlayers;
@@ -104,6 +106,23 @@ public class Game {
         return Integer.valueOf(nbPlayers);
     }
 
+    public Player isWinning(){
+        Player winner = null;
+        int max = 0;
+        Random rd = new Random();
+
+        for(int i=0; i> this.getNbPlayers(); i++){
+            if(this.getPlayers().get(i).getScoreGame() > max) {
+                winner = this.getPlayers().get(i);
+            }else if(this.getPlayers().get(i).getScoreGame() == max){
+                if(rd.nextBoolean()){
+                    winner = this.getPlayers().get(i);
+                }
+            }
+        }
+        return winner;
+    }
+
     /**
      * This method should be called at the end of a round.
      * The goal is to see if a player has more than 100 points. If so, the game should end.
@@ -117,33 +136,13 @@ public class Game {
      * @return true if the game is finished, or false if the game is not finished.
      */
     public boolean stateOfTheGame(){
-        /*
-        Il faut prendre en compte la situation où il y a égalité qui ne fonctionne pas.
-         */
-        boolean isFinished = false;
-        String winner = new String();
-        String draw = new String();
-        int lowestScore = 1000;
 
-        for(Player player : players){
-            if(player.getScoreGame() >= 100){
-                isFinished = true;
-            }
-            if(player.getScoreGame() <= lowestScore){
-                winner = player.getPlayer();
-                lowestScore = player.getScoreGame();
-            }
-            if(player.getScoreGame() == lowestScore){
-                draw = player.getPlayer();
-            }
-        }
-
-        if(isFinished == true){
-            System.out.println("Game ended! The winner is " + winner + "! Congratz!");
+        if(this.isWinning().getScoreGame() >= 100){
+            System.out.println("Game ended! The winner is " + this.isWinning().getPlayer() + "! Congratz!");
+            return true;
         }
         else{
-            //new Round();
+            return false;
         }
-        return isFinished;
     }
 }
