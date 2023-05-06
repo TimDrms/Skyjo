@@ -9,6 +9,15 @@ public class Round {
     private DrawPile drawPile;
     private DiscardPile discardPile;
 
+    /**
+     * The constructor of the round will do all the things needed to initialize a round.
+     * So, it will create and generate a draw pile, it will also create a discard pile and put one card in it (this is useful for the game)
+     * Then, we will create for each player a deck, initializing it and adding it to an array list of decks.
+     * Once this is done, we will ask each player to return 2 cards from their deck.
+     *
+     * @param g : The game in which the round takes place
+     * @throws IOException
+     */
     public Round(Game g) throws IOException {
         this.drawPile = new DrawPile();
         this.drawPile.generateDrawPile();
@@ -18,6 +27,7 @@ public class Round {
             Deck deck = new Deck();
             deck.initializeDeck(this.drawPile);
             this.decks.add(deck);
+            // This for loop will ask each player to return 2 cards at the beginning of the round (and it will do it).
             for(int j = 0; j < 2; j++){
                 Scanner myObj = new Scanner(System.in);  // Create a Scanner object
                 System.out.println("Choose a card to return");
