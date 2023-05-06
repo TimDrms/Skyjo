@@ -18,6 +18,14 @@ public class Round {
             Deck deck = new Deck();
             deck.initializeDeck(this.drawpile);
             this.decks.add(deck);
+            for(int j = 0; j < 2; j++){
+                Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+                System.out.println("Choose a card to return");
+                int choice = 0;
+                choice = myObj.nextInt();  // Read user input
+                decks.get(i).returnCard(decks.get(i).getCardPile().get(choice));
+                System.out.println(decks.get(i));
+            }
         }
     }
 
