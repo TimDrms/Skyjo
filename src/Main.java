@@ -91,8 +91,8 @@ public class Main {
         game.initializeGame();
         boolean gameOver = false;
         boolean roundOver = false;
-        while(gameOver != true){
-            while(roundOver != true){
+        while(!gameOver){
+            while(!roundOver){
                 Round round = new Round(game);
                 System.out.println("slt");
                 for(int i = 0; i < game.getNbPlayers() ; i++){
@@ -106,7 +106,7 @@ public class Main {
                     roundOver = true;
                 }*/
             }
-            if(game.stateOfTheGame() == true){
+            if(game.stateOfTheGame()){
                 gameOver = true;
             }
         }

@@ -37,6 +37,24 @@ public class Deck extends CardPile{
     }
 
     /**
+     * This method check if there are three cards with the same value in a column
+     * @return int, 0 if there is no column with three same cards or the number of the column if there is one
+     */
+    public int checkIdenticalCardsColumn(){
+        for(int i=0; i<5;i++) {
+            if(i==4){
+                return 0;
+            }
+            if (this.getCardPile().get(0 + i).getValue() == this.getCardPile().get(4 + i).getValue()
+            && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()) {
+                return i+1;
+            }
+        }
+        return 0;
+    }
+
+
+    /**
      * This method will simply return a card.
      * So, when a card isn't returned yet (which means that we don't know the value of the card), this method will return it.
      * If the card has already been returned, it will simply say that the card has already been returned.
