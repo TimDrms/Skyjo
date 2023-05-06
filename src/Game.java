@@ -89,7 +89,6 @@ public class Game {
             player.askName();
             this.players.add(player);
         }
-        this.actualRound = new Round(this);
     }
 
     /**
