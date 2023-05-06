@@ -108,9 +108,9 @@ public class Main {
                 System.out.println("aziz");
                 game.players.get(0).setScoreGame(103);
 
-                /*if(round.checkEndOfRound() == true){
+                if(game.getActualRound().checkEndOfRound() == true){
                     roundOver = true;
-                }*/
+                }
                 //gameOver = true;
                 //roundOver = true;
 
