@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public void test() throws IOException{
         System.out.println("Create two cards.");
         Card card1 = new Card(8, false);
         Card card2 = new Card(12, true);
@@ -84,8 +84,32 @@ public class Main {
         System.out.println("\n-------------------------------------\nCreating a new round");
         Round round1 = new Round(game1);
         System.out.println("\n-----------------------------------\nTest for the method chooseBetweenDrawDiscard");
-        round1.chooseBetweenDrawDiscard();
+        round1.chooseBetweenDrawDiscard(players.get(0));
+    }
+    public static void main(String[] args) throws IOException {
+        Game game = new Game();
+        game.initializeGame();
+        boolean gameOver = false;
+        boolean roundOver = false;
+        while(gameOver != true){
+            while(roundOver != true){
+                Round round = new Round(game);
+                System.out.println("slt");
+                for(int i = 0; i < game.getNbPlayers() ; i++){
+                    System.out.println("slt");
+                    round.chooseBetweenDrawDiscard(game.players.get(i));
+                }
+                //gameOver = true;
+                //roundOver = true;
 
-
+                /*if(round.stateOfTheRound() == true){
+                    roundOver = true;
+                }*/
+            }
+            if(game.stateOfTheGame() == true){
+                gameOver = true;
+            }
+        }
+        game.stateOfTheGame();
     }
 }
