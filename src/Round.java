@@ -41,6 +41,8 @@ public class Round {
      * This method will be called each time a player needs to play, so he can choose between picking a card from the card pile or the discard card.
      * If he chooses to pick a card from the card pile, we will show the card and call the method chooseBetweenDropReplace.
      * If he chooses to pick a card from the discard pile, we will directly call the method replaceCard.
+     *
+     * @param p The player that will pick a card
      */
     public void chooseBetweenDrawDiscard(Player p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
@@ -52,7 +54,7 @@ public class Round {
             Card drawnCard = new Card();
             drawnCard = drawpile.pickDrawCard();
             System.out.println(drawnCard);
-            chooseBetweenDropReplace(drawnCard);
+            chooseBetweenDropReplace(drawnCard, p);
         }
         else if(choice == 2){
             replaceCard();
@@ -69,8 +71,9 @@ public class Round {
      * If you choose to replace it by one of the card of your deck, we will call the method replaceCard to do it.
      *
      * @param c : the card that has been drawn by the player and that could be replaced by one of the card of your deck.
+     * @param p : the player that will make the choice
      */
-    public void chooseBetweenDropReplace(Card c){
+    public void chooseBetweenDropReplace(Card c, Player p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) or do you want to replace it by a card of your deck ? (say 2)");
@@ -89,7 +92,7 @@ public class Round {
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
-            chooseBetweenDropReplace(c);
+            chooseBetweenDropReplace(c, p);
         }
     }
 

@@ -92,13 +92,23 @@ public class Main {
         boolean gameOver = false;
         boolean roundOver = false;
         while(!gameOver){
+            Round round = new Round(game);
             while(!roundOver){
-                Round round = new Round(game);
-                System.out.println("slt");
-                System.out.println(game.getActualRound().getDecks().get(0));
+                System.out.println("aziz");
+
+                //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
-                    System.out.println("slt");
+                    System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
+                    System.out.println("Here is a reminder of your deck.");
+                    System.out.println(game.getActualRound().getDecks().get(i));
                     round.chooseBetweenDrawDiscard(game.players.get(i));
+                }
+
+                System.out.println("aziz");
+                game.players.get(0).setScoreGame(103);
+
+                if(round.checkEndOfRound() == true){
+                    roundOver = true;
                 }
                 //gameOver = true;
                 //roundOver = true;
@@ -107,7 +117,7 @@ public class Main {
                     roundOver = true;
                 }*/
             }
-            if(game.stateOfTheGame()){
+            if(game.stateOfTheGame() == true){
                 gameOver = true;
             }
         }
