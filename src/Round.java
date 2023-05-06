@@ -6,17 +6,17 @@ public class Round {
 
     private ArrayList<Deck> decks = new ArrayList<>();
 
-    private DrawPile drawpile;
-    private DiscardPile discardpile;
+    private DrawPile drawPile;
+    private DiscardPile discardPile;
 
     public Round(Game g) throws IOException {
-        this.drawpile = new DrawPile();
-        this.drawpile.generateDrawPile();
-        this.discardpile = new DiscardPile();
-        this.discardpile.addDiscardPile(this.drawpile.pickDrawCard());
+        this.drawPile = new DrawPile();
+        this.drawPile.generateDrawPile();
+        this.discardPile = new DiscardPile();
+        this.discardPile.addDiscardPile(this.drawPile.pickDrawCard());
         for(int i = 0 ; i < g.getNbPlayers() ; i++){
             Deck deck = new Deck();
-            deck.initializeDeck(this.drawpile);
+            deck.initializeDeck(this.drawPile);
             this.decks.add(deck);
             for(int j = 0; j < 2; j++){
                 Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -30,15 +30,15 @@ public class Round {
     }
 
     public ArrayList<Deck> getDecks() {
-        return decks;
+        return this.decks;
     }
 
     public DrawPile getDrawpile() {
-        return drawpile;
+        return this.drawPile;
     }
 
     public DiscardPile getDiscardpile() {
-        return discardpile;
+        return this.discardPile;
     }
 
     public void stateOfTheRound(){
@@ -55,12 +55,12 @@ public class Round {
     public void chooseBetweenDrawDiscard(Player p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Do you want to pick a random card from the pile card (say 1) or the card that is on top of the discard pile, which is " + discardpile.showTheTopCard() + " (say 2)");
+        System.out.println("Do you want to pick a random card from the pile card (say 1) or the card that is on top of the discard pile, which is " + discardPile.showTheTopCard() + " (say 2)");
         choice = myObj.nextInt();  // Read user input
 
         if(choice == 1){
             Card drawnCard = new Card();
-            drawnCard = drawpile.pickDrawCard();
+            drawnCard = drawPile.pickDrawCard();
             System.out.println(drawnCard);
             chooseBetweenDropReplace(drawnCard, p);
         }
@@ -88,7 +88,7 @@ public class Round {
         choice = myObj.nextInt();  // Read user input
 
         if(choice == 1){
-            discardpile.addDiscardPile(c);
+            discardPile.addDiscardPile(c);
             System.out.println("The card is now in the discard pile.");
             System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
             choice = myObj.nextInt();
