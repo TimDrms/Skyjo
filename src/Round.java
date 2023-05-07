@@ -101,6 +101,7 @@ public class Round {
             choice = myObj.nextInt();
             // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
             decks.get(p).returnCard(decks.get(p).getCardPile().get(choice-1)); // Return the specified card from the correct deck
+            System.out.println(decks.get(p));
 
         }
         else if(choice == 2){
@@ -108,7 +109,6 @@ public class Round {
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
-            choice = myObj.nextInt();
             chooseBetweenDropReplace(c, p);
         }
     }
