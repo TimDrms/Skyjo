@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Deck extends CardPile{
     private int scoreRound; // Score of the round of the player who owns the deck.
@@ -57,7 +58,7 @@ public class Deck extends CardPile{
     /**
      * This method will simply return a card.
      * So, when a card isn't returned yet (which means that we don't know the value of the card), this method will return it.
-     * If the card has already been returned, it will simply say that the card has already been returned.
+     * If the card has already been returned, it will say that the card has already been returned and will ask to return another card. Then, we will call back this method, with the new card chose.
      * Otherwise, it will return the card and say the value of it.
      *
      * @param card the card that we want to return
@@ -68,7 +69,11 @@ public class Deck extends CardPile{
             System.out.println("The value of the card is: " + card.getValue());
         }
         else{
-            System.out.println("Error: this card has already been returned.");
+            System.out.println("Error: this card has already been returned. Please select another one.");
+            Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+            int choice = 0;
+            choice = myObj.nextInt();  // Read user input
+            returnCard(getCardPile().get(choice));
         }
     }
 
