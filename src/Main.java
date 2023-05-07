@@ -92,13 +92,13 @@ public class Main {
         boolean gameOver = false;
         boolean roundOver = false;
         while(!gameOver){
-            //Round round = new Round(game);
             game.setActualRound(new Round(game));
             while(!roundOver){
                 System.out.println("aziz");
 
                 //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
+                    System.out.println("\n------------------------------------------");
                     System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
                     System.out.println("Here is a reminder of your deck.");
                     System.out.println(game.getActualRound().getDecks().get(i));
