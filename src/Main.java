@@ -84,7 +84,7 @@ public class Main {
         System.out.println("\n-------------------------------------\nCreating a new round");
         Round round1 = new Round(game1);
         System.out.println("\n-----------------------------------\nTest for the method chooseBetweenDrawDiscard");
-        round1.chooseBetweenDrawDiscard(players.get(0));
+        //round1.chooseBetweenDrawDiscard(players.get(0));
     }
     public static void main(String[] args) throws IOException {
         Game game = new Game();
@@ -102,7 +102,7 @@ public class Main {
                     System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
                     System.out.println("Here is a reminder of your deck.");
                     System.out.println(game.getActualRound().getDecks().get(i));
-                    game.getActualRound().chooseBetweenDrawDiscard(game.players.get(i));
+                    game.getActualRound().chooseBetweenDrawDiscard(i);
                 }
 
                 System.out.println("aziz");

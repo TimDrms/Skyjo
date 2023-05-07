@@ -59,7 +59,7 @@ public class Round {
      *
      * @param p The player that will pick a card
      */
-    public void chooseBetweenDrawDiscard(Player p){
+    public void chooseBetweenDrawDiscard(int p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Do you want to pick a random card from the pile card (say 1) or the card that is on top of the discard pile, which is " + discardPile.showTheTopCard() + " (say 2)");
@@ -88,7 +88,7 @@ public class Round {
      * @param c : the card that has been drawn by the player and that could be replaced by one of the card of your deck.
      * @param p : the player that will make the choice
      */
-    public void chooseBetweenDropReplace(Card c, Player p){
+    public void chooseBetweenDropReplace(Card c, int p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) or do you want to replace it by a card of your deck ? (say 2)");
@@ -100,7 +100,7 @@ public class Round {
             System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
             choice = myObj.nextInt();
             // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
-            //decks.get(i).returnCard(decks.get(i).getCardPile().get(choice)); // Return the specified card from the correct deck
+            decks.get(p).returnCard(decks.get(p).getCardPile().get(choice-1)); // Return the specified card from the correct deck
 
         }
         else if(choice == 2){
