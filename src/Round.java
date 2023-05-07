@@ -72,7 +72,7 @@ public class Round {
             chooseBetweenDropReplace(drawnCard, p);
         }
         else if(choice == 2){
-            replaceCard();
+            replaceCard(this.drawPile.pickDrawCard());
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
@@ -104,7 +104,7 @@ public class Round {
 
         }
         else if(choice == 2){
-            replaceCard();
+            replaceCard(c);
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
@@ -113,9 +113,21 @@ public class Round {
     }
 
 
-
-    public void replaceCard(){
-
+    /**
+     * This method will replace one of the card of your choice by another card.
+     * It could even be a card from the draw pile, or the discard pile.
+     * We will call this method in the methods chooseBetweenDropReplace and chooseBetweenDrawDiscard.
+     * Once this is called, we ask the player which card of his deck he wants to swap, and we proceed it.
+     *
+     * @param c : the card that will replace of the card of the deck of the player.
+     */
+    public void replaceCard(Card c){
+        int choice = 0;
+        System.out.println("Which card do you want to replace from your deck?");
+        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+        choice = myObj.nextInt();
+        //decks.get(i).getCardPile().set(choice, c);
+        //System.out.println(decks.get(i));
     }
 
     /**
