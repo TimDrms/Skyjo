@@ -34,7 +34,7 @@ public class Round {
                 System.out.println(g.players.get(i).getPlayer() + " choose a card to return in your deck.");
                 int choice = 0;
                 choice = myObj.nextInt();  // Read user input
-                decks.get(i).returnCard(decks.get(i).getCardPile().get(choice)); // Return the specified card from the correct deck
+                decks.get(i).returnCard(decks.get(i).getCardPile().get(choice-1)); // Return the specified card from the correct deck
                 System.out.println(decks.get(i)); // Print back the deck to see what is the value of that card.
             }
         }
@@ -108,6 +108,7 @@ public class Round {
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
+            choice = myObj.nextInt();
             chooseBetweenDropReplace(c, p);
         }
     }
@@ -140,7 +141,7 @@ public class Round {
      * @return Card, the card we wanted to pick
      */
     public Card getCardFromDeck(int player, int nb){
-        return getDecks().get(player).getCardPile().get(nb);
+        return decks.get(player).getCardPile().get(nb);
     }
 
     /**
