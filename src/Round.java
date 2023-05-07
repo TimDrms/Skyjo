@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Round {
 
     private ArrayList<Deck> decks = new ArrayList<>();
-
     private DrawPile drawPile;
     private DiscardPile discardPile;
 
@@ -101,7 +100,8 @@ public class Round {
             System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
             choice = myObj.nextInt();
             // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
-            // getDecks().get(0).getCardPile().get(choice);
+            //decks.get(i).returnCard(decks.get(i).getCardPile().get(choice)); // Return the specified card from the correct deck
+
         }
         else if(choice == 2){
             replaceCard();
