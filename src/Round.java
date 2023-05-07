@@ -30,7 +30,7 @@ public class Round {
             // This for loop will ask each player to return 2 cards at the beginning of the round (and it will do it).
             for(int j = 0; j < 2; j++){
                 Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-                System.out.println("Choose a card to return");
+                System.out.println(g.players.get(i).getPlayer() + " choose a card to return in your deck.");
                 int choice = 0;
                 choice = myObj.nextInt();  // Read user input
                 decks.get(i).returnCard(decks.get(i).getCardPile().get(choice));
