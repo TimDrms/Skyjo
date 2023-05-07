@@ -73,7 +73,7 @@ public class Deck extends CardPile{
             Scanner myObj = new Scanner(System.in);  // Create a Scanner object
             int choice = 0;
             choice = myObj.nextInt();  // Read user input
-            returnCard(getCardPile().get(choice));
+            returnCard(getCardPile().get(choice-1));
         }
     }
 
