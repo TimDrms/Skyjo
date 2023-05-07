@@ -19,10 +19,12 @@ public class Round {
      * @throws IOException
      */
     public Round(Game g) throws IOException {
+        // Initializing the draw pile and discard pile.
         this.drawPile = new DrawPile();
         this.drawPile.generateDrawPile();
         this.discardPile = new DiscardPile();
         this.discardPile.addDiscardPile(this.drawPile.pickDrawCard());
+        // This for loop will create and initialize each deck for each player (and then adding it to an ArrayList of decks).
         for(int i = 0 ; i < g.getNbPlayers() ; i++){
             Deck deck = new Deck();
             deck.initializeDeck(this.drawPile);
@@ -33,8 +35,8 @@ public class Round {
                 System.out.println(g.players.get(i).getPlayer() + " choose a card to return in your deck.");
                 int choice = 0;
                 choice = myObj.nextInt();  // Read user input
-                decks.get(i).returnCard(decks.get(i).getCardPile().get(choice));
-                System.out.println(decks.get(i));
+                decks.get(i).returnCard(decks.get(i).getCardPile().get(choice)); // Return the specified card from the correct deck
+                System.out.println(decks.get(i)); // Print back the deck to see what is the value of that card.
             }
         }
     }
