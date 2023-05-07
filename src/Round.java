@@ -53,10 +53,6 @@ public class Round {
         return this.discardPile;
     }
 
-    public void stateOfTheRound(){
-
-    }
-
     /**
      * This method will be called each time a player needs to play, so he can choose between picking a card from the card pile or the discard card.
      * If he chooses to pick a card from the card pile, we will show the card and call the method chooseBetweenDropReplace.
