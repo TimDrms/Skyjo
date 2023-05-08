@@ -54,6 +54,20 @@ public class Deck extends CardPile{
         return 0;
     }
 
+    /**
+     * This method calc the score of the deck by adding up the values of every cards
+     * @return int, score of the deck
+     */
+    public int getScoreFromDeck(){
+        int score=0;
+        for(int i=0;i<12;i++){
+            if(this.getCardPile().get(i).getIsReturned()) {
+                score += this.getCardPile().get(i).getValue();
+            }
+        }
+        return score;
+    }
+
 
     /**
      * This method will simply return a card.
@@ -79,16 +93,22 @@ public class Deck extends CardPile{
     }
 
     public String toString(){
+        System.out.println("");
+        System.out.println("The score of the deck is : " + this.getScoreFromDeck());
         for (int j = 0; j < 3; j++) {
-            System.out.println("");
-            System.out.print("|");
+
             for (int i = 0; i < 4; i++) {
                 if(this.getCardPile().get((4*j)+i).getIsReturned()){
-                    System.out.print(" " + this.getCardPile().get((4*j)+i).getValue() + " |");
+                    if(this.getCardPile().get((4*j)+i).getValue()>9 || this.getCardPile().get((4*j)+i).getValue()<0) {
+                        System.out.print(" | " + this.getCardPile().get((4 * j) + i).getValue() + " ");
+                    }else{
+                        System.out.print(" |  " + this.getCardPile().get((4 * j) + i).getValue() + " ");
+                    }
                 }else{
-                    System.out.print(" X |");
+                    System.out.print(" |  X ");
                 }
             }
+            System.out.println(" |");
         }
         return "";
     }
