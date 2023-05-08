@@ -67,6 +67,7 @@ public class Deck extends CardPile{
         if(!card.getIsReturned()){
             card.setIsReturned(true);
             System.out.println("The value of the card is: " + card.getValue());
+            System.out.println(this);
         }
         else{
             System.out.println("Error: this card has already been returned. Please select another one.");

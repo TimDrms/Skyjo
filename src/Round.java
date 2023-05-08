@@ -25,17 +25,18 @@ public class Round {
         this.discardPile.addDiscardPile(this.drawPile.pickDrawCard());
         // This for loop will create and initialize each deck for each player (and then adding it to an ArrayList of decks).
         for(int i = 0 ; i < g.getNbPlayers() ; i++){
+            System.out.println("\n------------------------------------------");
             Deck deck = new Deck();
             deck.initializeDeck(this.drawPile);
             this.decks.add(deck);
             // This for loop will ask each player to return 2 cards at the beginning of the round (and it will do it).
             for(int j = 0; j < 2; j++){
                 Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-                System.out.println(g.players.get(i).getPlayer() + " choose a card to return in your deck.");
+                System.out.println("\n" + g.players.get(i).getPlayer() + " choose a card to return in your deck.");
                 int choice = 0;
                 choice = myObj.nextInt();  // Read user input
                 decks.get(i).returnCard(decks.get(i).getCardPile().get(choice-1)); // Return the specified card from the correct deck
-                System.out.println(decks.get(i)); // Print back the deck to see what is the value of that card.
+                //System.out.println(decks.get(i)); // Print back the deck to see what is the value of that card.
             }
         }
     }
@@ -74,6 +75,7 @@ public class Round {
         else if(choice == 2){
             this.discardPile.showTheTopCard().setIsReturned(true);
             replaceCard(this.discardPile.showTheTopCard(),p);
+            this.discardPile.pickDiscardCard();
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose. \nWhich action you want to do?");
@@ -105,6 +107,7 @@ public class Round {
 
         }
         else if(choice == 2){
+            c.setIsReturned(true);
             replaceCard(c,p);
         }
         else{
@@ -128,6 +131,7 @@ public class Round {
         System.out.println("Which card do you want to replace from your deck?");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
+        discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
         getDecks().get(p).getCardPile().set(choice-1, c);
         System.out.println(decks.get(p));
     }

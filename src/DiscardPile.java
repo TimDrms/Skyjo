@@ -56,7 +56,12 @@ public class DiscardPile extends CardPile{
      * @return the Card that is on top of the discard pile
      */
     public Card showTheTopCard(){
-        return this.discardPile.get(this.discardPile.size() - 1);
+        if(this.discardPile.size()>0){
+            return this.discardPile.get(this.discardPile.size() - 1);
+        }
+        else{
+            return null;
+        }
     }
 
     @Override
