@@ -94,11 +94,9 @@ public class Main {
         while(!gameOver){
             game.setActualRound(new Round(game));
             while(!roundOver){
-                System.out.println("aziz");
-
                 //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
-                    System.out.println("\n------------------------------------------");
+                    System.out.println("\n------------------------------------------------------------------------");
                     System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
                     System.out.println("Here is a reminder of your deck.");
                     System.out.println(game.getActualRound().getDecks().get(i));
@@ -106,9 +104,10 @@ public class Main {
                 }
 
                 System.out.println("aziz");
-                game.players.get(0).setScoreGame(103);
+                //game.players.get(0).setScoreGame(103);
 
                 if(game.getActualRound().checkEndOfRound() == true){
+                    game.attributeScore();
                     roundOver = true;
                 }
                 //gameOver = true;

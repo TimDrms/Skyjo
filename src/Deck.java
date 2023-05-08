@@ -55,7 +55,7 @@ public class Deck extends CardPile{
     }
 
     /**
-     * This method calc the score of the deck by adding up the values of every cards
+     * This method calc the score of the deck by adding up the values of every cards that are returned (score in real time for players)
      * @return int, score of the deck
      */
     public int getScoreFromDeck(){
@@ -65,6 +65,22 @@ public class Deck extends CardPile{
                 score += this.getCardPile().get(i).getValue();
             }
         }
+        return score;
+    }
+
+    /**
+     * This method return all the cards and call getScoreFromDeck, then it print the deck
+     * @return int, score of the deck
+     */
+    public int getFinalScoreFromDeck(){
+        int score=0;
+        for(int i=0;i<12;i++){
+            if(!this.getCardPile().get(i).getIsReturned()) {
+                this.getCardPile().get(i).setIsReturned(true);
+            }
+        }
+        score = this.getScoreFromDeck();
+        System.out.println(this);
         return score;
     }
 

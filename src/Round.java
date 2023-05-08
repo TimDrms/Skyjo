@@ -25,7 +25,7 @@ public class Round {
         this.discardPile.addDiscardPile(this.drawPile.pickDrawCard());
         // This for loop will create and initialize each deck for each player (and then adding it to an ArrayList of decks).
         for(int i = 0 ; i < g.getNbPlayers() ; i++){
-            System.out.println("\n------------------------------------------");
+            System.out.println("\n------------------------------------------------------------------------");
             Deck deck = new Deck();
             deck.initializeDeck(this.drawPile);
             this.decks.add(deck);

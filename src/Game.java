@@ -105,12 +105,19 @@ public class Game {
         return Integer.valueOf(nbPlayers);
     }
 
+    /**
+     * This method return the player that is winning by comparing the score of each of them using the variable max.
+     * In case of equality, the winner is drawn as random.
+     * @return Player, winner of the round
+     */
     public Player isWinning(){
         Player winner = null;
-        int max = 0;
+        int max = -50;
         Random rd = new Random();
 
         for(int i=0; i> this.getNbPlayers(); i++){
+            System.out.println(this.getPlayers().get(i).getScoreGame());
+            System.out.println(max);
             if(this.getPlayers().get(i).getScoreGame() > max) {
                 winner = this.getPlayers().get(i);
             }else if(this.getPlayers().get(i).getScoreGame() == max){
@@ -120,6 +127,17 @@ public class Game {
             }
         }
         return winner;
+    }
+
+    /**
+     * This method is calling at the end of each round to adding up the score of the actual round to the score of the game for each player
+     */
+    public void attributeScore(){
+        System.out.println("\n------------------------------------------------------------------------");
+        for(int i=0;i<this.getNbPlayers();i++){
+            System.out.println("For the player " + this.getPlayers().get(i).getPlayer() + " :");
+            this.players.get(i).setScoreGame(this.players.get(i).getScoreGame() + this.getActualRound().getDecks().get(i).getFinalScoreFromDeck());
+        }
     }
 
     /**
