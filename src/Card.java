@@ -64,10 +64,10 @@ public class Card {
      */
     public String toString() {
         if(this.isReturned == false){
-            return "The value of the card is " + this.value + " and this card isn't returned";
+            return "a " + this.value;
         }
         else{
-            return "The value of the card is " + this.value + " and this card is returned";
+            return "a " + this.value;
         }
 
     }

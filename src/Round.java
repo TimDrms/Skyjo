@@ -62,20 +62,21 @@ public class Round {
     public void chooseBetweenDrawDiscard(int p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Do you want to pick a random card from the pile card (say 1) or the card that is on top of the discard pile, which is " + discardPile.showTheTopCard() + " (say 2)");
+        System.out.println("Do you want to pick a random card from the pile card (say 1) \nOr the card that is on top of the discard pile, which is " + this.discardPile.showTheTopCard() + " (say 2)");
         choice = myObj.nextInt();  // Read user input
 
         if(choice == 1){
             Card drawnCard = new Card();
             drawnCard = drawPile.pickDrawCard();
-            System.out.println(drawnCard);
+            System.out.println("The card you picked is " + drawnCard);
             chooseBetweenDropReplace(drawnCard, p);
         }
         else if(choice == 2){
-            replaceCard(this.drawPile.pickDrawCard());
+            this.discardPile.showTheTopCard().setIsReturned(true);
+            replaceCard(this.discardPile.showTheTopCard(),p);
         }
         else{
-            System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
+            System.out.println("Error: invalid number. You should type 1 or 2 to choose. \nWhich action you want to do?");
             chooseBetweenDrawDiscard(p);
         }
     }
@@ -91,23 +92,23 @@ public class Round {
     public void chooseBetweenDropReplace(Card c, int p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) or do you want to replace it by a card of your deck ? (say 2)");
+        System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) \nOr do you want to replace it by a card of your deck ? (say 2)");
         choice = myObj.nextInt();  // Read user input
 
         if(choice == 1){
             discardPile.addDiscardPile(c);
             System.out.println("The card is now in the discard pile.");
-            System.out.println("Now you have to return one of the cards in your deck. Which one do you want to return?");
+            System.out.println("Now you have to return one of the cards in your deck. \nWhich one do you want to return?");
             choice = myObj.nextInt();
             // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
             decks.get(p).returnCard(decks.get(p).getCardPile().get(choice-1)); // Return the specified card from the correct deck
 
         }
         else if(choice == 2){
-            replaceCard(c);
+            replaceCard(c,p);
         }
         else{
-            System.out.println("Error: invalid number. You should type 1 or 2 to choose which action you want to do.");
+            System.out.println("Error: invalid number. You should type 1 or 2 to choose \nWhich action you want to do?");
             choice = myObj.nextInt();
             chooseBetweenDropReplace(c, p);
         }
@@ -122,13 +123,13 @@ public class Round {
      *
      * @param c : the card that will replace of the card of the deck of the player.
      */
-    public void replaceCard(Card c){
+    public void replaceCard(Card c, int p){
         int choice = 0;
         System.out.println("Which card do you want to replace from your deck?");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
-        //decks.get(i).getCardPile().set(choice, c);
-        //System.out.println(decks.get(i));
+        getDecks().get(p).getCardPile().set(choice-1, c);
+        System.out.println(decks.get(p));
     }
 
     /**
