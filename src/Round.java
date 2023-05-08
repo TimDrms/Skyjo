@@ -74,8 +74,8 @@ public class Round {
         }
         else if(choice == 2){
             this.discardPile.showTheTopCard().setIsReturned(true);
-            replaceCard(this.discardPile.showTheTopCard(),p);
-            this.discardPile.pickDiscardCard();
+            replaceCard(this.discardPile.pickDiscardCard(),p);
+
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose. \nWhich action you want to do?");
