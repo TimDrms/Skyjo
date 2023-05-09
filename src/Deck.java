@@ -48,6 +48,12 @@ public class Deck extends CardPile{
             }
             if (this.getCardPile().get(0 + i).getValue() == this.getCardPile().get(4 + i).getValue()
             && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()) {
+                this.getCardPile().get(0 + i).setIsColumn(true);
+                this.getCardPile().get(0 + i).setValue(0);
+                this.getCardPile().get(4 + i).setIsColumn(true);
+                this.getCardPile().get(4 + i).setValue(0);
+                this.getCardPile().get(8 + i).setIsColumn(true);
+                this.getCardPile().get(8 + i).setValue(0);
                 return i+1;
             }
         }
@@ -108,20 +114,32 @@ public class Deck extends CardPile{
         }
     }
 
+    /**
+     * The toString method in this class will return the entire deck of a player.
+     * If a card is returned, we will print the value of the card.
+     * If a card isn't returned, because the player shouldn't see the value of the card, we will print instead a X.
+     * If there is a column with identical cards, we will print a "Y" instead of the value of the card, to show that the column has cards with the same value.
+     * We have tried to print the deck in a fancy way, so it would be pleasant for the player to read his deck.
+     *
+     * @return the complete deck of a player.
+     */
     public String toString(){
         System.out.println("");
         System.out.println("The score of the deck is : " + this.getScoreFromDeck());
         for (int j = 0; j < 3; j++) {
 
-            for (int i = 0; i < 4; i++) {
-                if(this.getCardPile().get((4*j)+i).getIsReturned()){
-                    if(this.getCardPile().get((4*j)+i).getValue()>9 || this.getCardPile().get((4*j)+i).getValue()<0) {
+            for (int i = 0; i < 4; i++) { // Doing 2 separate for because we want the cards to be printed as a grid.
+                if(this.getCardPile().get((4*j)+i).getIsReturned() && !this.getCardPile().get((4*j)+i).getIsColumn()){ // Verification that the card is returned and that this isn't a column.
+                    if(this.getCardPile().get((4*j)+i).getValue()>9 || this.getCardPile().get((4*j)+i).getValue()<0) { // Check if the value of the card is between 0 & 9, because it will take less spaces compared to -1, -2, 10, 11 & 12.
                         System.out.print(" | " + this.getCardPile().get((4 * j) + i).getValue() + " ");
                     }else{
                         System.out.print(" |  " + this.getCardPile().get((4 * j) + i).getValue() + " ");
                     }
-                }else{
+                }else if (!this.getCardPile().get((4*j)+i).getIsReturned()){ // Check if the card is hidden (in that case, we'll simply show an "X", because the player shouldn't see the value of the card.
                     System.out.print(" |  X ");
+                }
+                else if(this.getCardPile().get((4*j)+i).getIsColumn()){ // If a card is in a column with identical cards values and that the cards are returned, we will print a "Y" to show that all the cards have been returned. No need to check if the card is returned, because we check that when we give "True" to the variable "isColumn".
+                    System.out.print(" |  Y ");
                 }
             }
             System.out.println(" |");

@@ -19,7 +19,7 @@ public class DrawPile extends CardPile{
                 if(myReader.hasNextInt()){
                     int quantity = myReader.nextInt();
                     for (int i = 0; i < quantity; i++) {
-                        this.getCardPile().add(new Card(value, false));
+                        this.getCardPile().add(new Card(value, false, false));
                     }
                 }
            }

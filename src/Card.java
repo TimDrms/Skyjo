@@ -1,17 +1,19 @@
 public class Card {
     private int value = 0;
     private boolean isReturned = false;
+    private boolean isColumn = false;
     Card(){
         this.value = 0;
         this.isReturned = false;
+        this.isColumn = false;
     }
     Card(int value){
         this.value = value;
     }
-    Card(int value, boolean isReturned){
+    Card(int value, boolean isReturned, boolean isColumn){
         this.value = value;
         this.isReturned = isReturned;
-
+        this.isColumn = isColumn;
     }
 
     /**
@@ -56,11 +58,29 @@ public class Card {
         return this.isReturned;
     }
 
+    /**
+     * Setter that will set if a card is in a column with other identical cards or not
+     *
+     * @param isColumn boolean that say true if the card is in a column with other identical cards, and false if not
+     */
+    public void setIsColumn(boolean isColumn){
+        this.isColumn = isColumn;
+    }
+
+    /**
+     * Getter that will return if a card is in a column with other identical cards or not
+     *
+     * @return a boolean (true/false) that will say if a card is in a column with other identical cards or not
+     */
+    public boolean getIsColumn(){
+        return this.isColumn;
+    }
+
 
     @Override
     /**
      * toString method that is used when we want to print a card.
-     * It will say the value of the card and if the card is returned or not.
+     * It will say the value of the card and will act according to whether the card is returned or not.
      */
     public String toString() {
         if(this.isReturned == false){

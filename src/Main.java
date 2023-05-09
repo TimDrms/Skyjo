@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
     public void test() throws IOException{
         System.out.println("Create two cards.");
-        Card card1 = new Card(8, false);
-        Card card2 = new Card(12, true);
+        Card card1 = new Card(8, false, false);
+        Card card2 = new Card(12, true, false);
         System.out.println(card1);
         System.out.println(card2);
 
@@ -96,11 +96,19 @@ public class Main {
             while(!roundOver){
                 //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
+                    game.getActualRound().getDecks().get(0).getCardPile().get(0).setValue(4);
+                    game.getActualRound().getDecks().get(0).getCardPile().get(4).setValue(4);
+                    game.getActualRound().getDecks().get(0).getCardPile().get(8).setValue(4);
+                    game.getActualRound().getDecks().get(0).getCardPile().get(0).setIsReturned(true);
+                    game.getActualRound().getDecks().get(0).getCardPile().get(4).setIsReturned(true);
+                    game.getActualRound().getDecks().get(0).getCardPile().get(8).setIsReturned(true);
+                    game.getActualRound().getDecks().get(0).checkIdenticalCardsColumn();
                     System.out.println("\n------------------------------------------------------------------------");
                     System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
                     System.out.println("Here is a reminder of your deck.");
                     System.out.println(game.getActualRound().getDecks().get(i));
                     game.getActualRound().chooseBetweenDrawDiscard(i);
+                    game.getActualRound().getDecks().get(0).checkIdenticalCardsColumn();
                 }
 
                 System.out.println("aziz");
