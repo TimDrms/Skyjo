@@ -39,25 +39,21 @@ public class Deck extends CardPile{
 
     /**
      * This method check if there are three cards with the same value in a column
-     * @return int, 0 if there is no column with three same cards or the number of the column if there is one
      */
-    public int checkIdenticalCardsColumn(){
+    public void checkIdenticalCardsColumn(){
         for(int i=0; i<5;i++) {
-            if(i==4){
-                return 0;
-            }
             if (this.getCardPile().get(0 + i).getValue() == this.getCardPile().get(4 + i).getValue()
-            && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()) {
+            && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()
+            && this.getCardPile().get(0 + i).getIsReturned() && this.getCardPile().get(4 + i).getIsReturned()
+            && this.getCardPile().get(8 + i).getIsReturned()){
                 this.getCardPile().get(0 + i).setIsColumn(true);
                 this.getCardPile().get(0 + i).setValue(0);
                 this.getCardPile().get(4 + i).setIsColumn(true);
                 this.getCardPile().get(4 + i).setValue(0);
                 this.getCardPile().get(8 + i).setIsColumn(true);
                 this.getCardPile().get(8 + i).setValue(0);
-                return i+1;
             }
         }
-        return 0;
     }
 
     /**
