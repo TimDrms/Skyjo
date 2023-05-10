@@ -112,7 +112,6 @@ public class Round {
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose \nWhich action you want to do?");
-            choice = myObj.nextInt();
             chooseBetweenDropReplace(c, p);
         }
     }
