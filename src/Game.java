@@ -94,15 +94,26 @@ public class Game {
     /**
      * This method will simply ask how many people wants to play the game.
      * It should be called during the initialization of the game.
+     * We also check that the number of players is correct (between 2 and 8).
      *
      * @return int, the number of players
      */
     public int howMuchPlayers(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("How many people will play?"); // Asks how many people will play
-        String nbPlayers = myObj.nextLine();  // Read user input
-        this.setNbPlayers(Integer.valueOf(nbPlayers)); // Set the correct amount of players
-        return Integer.valueOf(nbPlayers);
+        if(myObj.hasNextInt()){ // Check that the value is an integer
+            int nbPlayers = myObj.nextInt();  // Read user input
+            this.setNbPlayers(nbPlayers); // Set the correct amount of players
+        }
+        else{
+            System.out.println("Please, just write a number.");
+            howMuchPlayers();
+        }
+        if(nbPlayers <2 || nbPlayers>8){ // Check that the number of players is between 2 and 8.
+            System.out.println("Please write a number between 2 and 8.");
+            howMuchPlayers();
+        }
+        return nbPlayers;
     }
 
     /**
