@@ -1,25 +1,6 @@
 import java.util.ArrayList;
 
 public class DiscardPile extends CardPile{
-    ArrayList<Card> discardPile = new ArrayList<>(150); // The discard pile that will be used during the game.
-
-    /**
-     * Setter that will set the discard pile. (this is an array list).
-     *
-     * @param discardPile : array list that is the discard pile.
-     */
-    public void setDiscardPile(ArrayList discardPile){
-        this.discardPile = discardPile;
-    }
-
-    /**
-     * Getter that will return the content of the discard pile.
-     *
-     * @return the discard pile.
-     */
-    public ArrayList getDiscardPile(){
-        return this.discardPile;
-    }
 
     /**
      * Method that will add a card inside the discard pile.
@@ -28,7 +9,7 @@ public class DiscardPile extends CardPile{
      * @param card the card that we want to add inside the discard pile.
      */
     public void addDiscardPile(Card card){
-        discardPile.add(card);
+        getCardPile().add(card);
     }
 
     /**
@@ -39,9 +20,9 @@ public class DiscardPile extends CardPile{
      */
     public Card pickDiscardCard(){
         Card cardPicked = new Card();
-        if(this.discardPile.isEmpty() == false){
-            cardPicked = this.discardPile.get(this.discardPile.size() - 1); // Get the last value of the ArrayList, which corresponds to the top of the discard pile.
-            this.discardPile.remove(this.discardPile.size() - 1); // Remove the card from the discard pile.
+        if(!this.getCardPile().isEmpty()){
+            cardPicked = this.getCardPile().get(this.getCardPile().size() - 1); // Get the last value of the ArrayList, which corresponds to the top of the discard pile.
+            this.getCardPile().remove(this.getCardPile().size() - 1); // Remove the card from the discard pile.
         }
         else{
             System.out.println("The discard pile is empty, so you can't pick a card from it.");
@@ -56,8 +37,8 @@ public class DiscardPile extends CardPile{
      * @return the Card that is on top of the discard pile
      */
     public Card showTheTopCard(){
-        if(this.discardPile.size()>0){
-            return this.discardPile.get(this.discardPile.size() - 1);
+        if(this.getCardPile().size()>0){
+            return this.getCardPile().get(this.getCardPile().size() - 1);
         }
         else{
             return null;
@@ -67,7 +48,7 @@ public class DiscardPile extends CardPile{
     @Override
     public String toString() {
         String value = "";
-        for(Card card : discardPile){
+        for(Card card : getCardPile()){
             value += "This card has the value " + card.getValue() + ".\n";
         }
         return value;
