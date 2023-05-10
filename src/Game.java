@@ -125,10 +125,7 @@ public class Game {
         Player winner = null;
         int max = -50;
         Random rd = new Random();
-
-        for(int i=0; i> this.getNbPlayers(); i++){
-            System.out.println(this.getPlayers().get(i).getScoreGame());
-            System.out.println(max);
+        for(int i=0; i<this.getNbPlayers(); i++){
             if(this.getPlayers().get(i).getScoreGame() > max) {
                 winner = this.getPlayers().get(i);
             }else if(this.getPlayers().get(i).getScoreGame() == max){
@@ -145,6 +142,7 @@ public class Game {
      */
     public void attributeScore(){
         System.out.println("\n------------------------------------------------------------------------");
+        System.out.println("End of the round");
         for(int i=0;i<this.getNbPlayers();i++){
             System.out.println("For the player " + this.getPlayers().get(i).getPlayer() + " :");
             this.players.get(i).setScoreGame(this.players.get(i).getScoreGame() + this.getActualRound().getDecks().get(i).getFinalScoreFromDeck());
@@ -164,9 +162,9 @@ public class Game {
      * @return true if the game is finished, or false if the game is not finished.
      */
     public boolean stateOfTheGame(){
-
-        if(this.isWinning().getScoreGame() >= 100){
-            System.out.println("Game ended! The winner is " + this.isWinning().getPlayer() + "! Congratz!");
+        Player winner=this.isWinning();
+        if(winner.getScoreGame() >= 100){
+            System.out.println("Game ended! The winner is " + winner.getPlayer() + "! Congratz!");
             return true;
         }
         else{

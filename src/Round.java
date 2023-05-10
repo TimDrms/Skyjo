@@ -132,6 +132,7 @@ public class Round {
         choice = myObj.nextInt();
         discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
         getDecks().get(p).getCardPile().set(choice-1, c);
+        this.decks.get(p).checkIdenticalCardsColumn();
         System.out.println(decks.get(p));
     }
 

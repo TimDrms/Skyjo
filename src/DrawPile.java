@@ -24,7 +24,7 @@ public class DrawPile extends CardPile{
                 }
            }
             myReader.close();
-            System.out.println("draw pile has been generated");
+            //System.out.println("draw pile has been generated");
 
                 //
             }
