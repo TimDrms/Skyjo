@@ -1,17 +1,20 @@
 public class Card {
     private int value = 0;
+    private String name=null;
     private boolean isReturned = false;
     private boolean isColumn = false;
     Card(){
         this.value = 0;
+        this.name = null;
         this.isReturned = false;
         this.isColumn = false;
     }
     Card(int value){
         this.value = value;
     }
-    Card(int value, boolean isReturned, boolean isColumn){
+    Card(int value, String name, boolean isReturned, boolean isColumn){
         this.value = value;
+        this.name = name;
         this.isReturned = isReturned;
         this.isColumn = isColumn;
     }
@@ -38,6 +41,22 @@ public class Card {
      */
     public int getValue(){
         return this.value;
+    }
+
+    /**
+     * Getter that will return the name of the card
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Setter that will set the string in parameter as the name of the card
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -84,10 +103,10 @@ public class Card {
      */
     public String toString() {
         if(this.isReturned == false){
-            return "a " + this.value;
+            return "a " + this.name;
         }
         else{
-            return "a " + this.value;
+            return "a " + this.name;
         }
 
     }

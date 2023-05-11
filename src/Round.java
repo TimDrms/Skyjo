@@ -127,7 +127,7 @@ public class Round {
      */
     public void replaceCard(Card c, int p){
         int choice = 0;
-        System.out.println("Which card do you want to replace from your deck?");
+        System.out.println("Which card do you want to replace from your deck? location : [1;12]");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
         discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));

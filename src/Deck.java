@@ -98,7 +98,7 @@ public class Deck extends CardPile{
     public void returnCard(Card card){
         if(!card.getIsReturned()){
             card.setIsReturned(true);
-            System.out.println("The value of the card is: " + card.getValue());
+            System.out.println("The card is " + card.getName() + " (value = "+ card.getValue() + " )");
             System.out.println(this);
         }
         else{
@@ -126,16 +126,12 @@ public class Deck extends CardPile{
 
             for (int i = 0; i < 4; i++) { // Doing 2 separate for because we want the cards to be printed as a grid.
                 if(this.getCardPile().get((4*j)+i).getIsReturned() && !this.getCardPile().get((4*j)+i).getIsColumn()){ // Verification that the card is returned and that this isn't a column.
-                    if(this.getCardPile().get((4*j)+i).getValue()>9 || this.getCardPile().get((4*j)+i).getValue()<0) { // Check if the value of the card is between 0 & 9, because it will take less spaces compared to -1, -2, 10, 11 & 12.
-                        System.out.print(" | " + this.getCardPile().get((4 * j) + i).getValue() + " ");
-                    }else{
-                        System.out.print(" |  " + this.getCardPile().get((4 * j) + i).getValue() + " ");
-                    }
+                    System.out.print(" | " + this.getCardPile().get((4 * j) + i).getName() + " ");
                 }else if (!this.getCardPile().get((4*j)+i).getIsReturned()){ // Check if the card is hidden (in that case, we'll simply show an "X", because the player shouldn't see the value of the card.
-                    System.out.print(" |  X ");
+                    System.out.print(" |   X  ");
                 }
                 else if(this.getCardPile().get((4*j)+i).getIsColumn()){ // If a card is in a column with identical cards values and that the cards are returned, we will print a "Y" to show that all the cards have been returned. No need to check if the card is returned, because we check that when we give "True" to the variable "isColumn".
-                    System.out.print(" |  Y ");
+                    System.out.print(" |   Y  ");
                 }
             }
             System.out.println(" |");

@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
     public void test() throws IOException{
         System.out.println("Create two cards.");
-        Card card1 = new Card(8, false, false);
-        Card card2 = new Card(12, true, false);
+        Card card1 = new Card(8, "name", false, false);
+        Card card2 = new Card(12, "name",true, false);
         System.out.println(card1);
         System.out.println(card2);
 
