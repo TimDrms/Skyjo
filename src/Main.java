@@ -93,6 +93,7 @@ public class Main {
         boolean roundOver = false;
         while(!gameOver){
             game.setActualRound(new Round(game));
+            roundOver = false;
             while(!roundOver){
                 //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
