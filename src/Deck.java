@@ -41,7 +41,7 @@ public class Deck extends CardPile{
      * This method check if there are three cards with the same value in a column
      */
     public void checkIdenticalCardsColumn(){
-        for(int i=0; i<5;i++) {
+        for(int i=0; i<4;i++) {
             if (this.getCardPile().get(0 + i).getValue() == this.getCardPile().get(4 + i).getValue()
             && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()
             && this.getCardPile().get(0 + i).getIsReturned() && this.getCardPile().get(4 + i).getIsReturned()
