@@ -111,25 +111,16 @@ public class Main {
                     game.getActualRound().chooseBetweenDrawDiscard(i);
                     game.getActualRound().getDecks().get(i).checkIdenticalCardsColumn();
                 }
-
-                System.out.println("aziz");
-                //game.players.get(0).setScoreGame(103);
-
-                if(game.getActualRound().checkEndOfRound() == true){
+                if(game.getActualRound().checkEndOfRound() == false){
                     game.attributeScore();
                     roundOver = true;
+                    if(game.stateOfTheGame() == true){
+                        gameOver = true;
+                    }
                 }
-                //gameOver = true;
-                //roundOver = true;
+            }
 
-                /*if(round.stateOfTheRound() == true){
-                    roundOver = true;
-                }*/
-            }
-            if(game.stateOfTheGame() == true){
-                gameOver = true;
-            }
         }
-        game.stateOfTheGame();
+        //game.stateOfTheGame();
     }
 }
