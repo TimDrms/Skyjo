@@ -102,7 +102,6 @@ public class Round {
             System.out.println("The card is now in the discard pile.");
             System.out.println("Now you have to return one of the cards in your deck. \nWhich one do you want to return?");
             choice = myObj.nextInt();
-            // En fonction de la valeur choisi, retourner la carte numéro choice de son deck grâce à la méthode returnCard dans la class Deck.
             decks.get(p).returnCard(decks.get(p).getCardPile().get(choice-1)); // Return the specified card from the correct deck
 
         }
@@ -130,10 +129,16 @@ public class Round {
         System.out.println("Which card do you want to replace from your deck? location : [1;12]");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
-        discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
-        getDecks().get(p).getCardPile().set(choice-1, c);
-        this.decks.get(p).checkIdenticalCardsColumn();
-        System.out.println(decks.get(p));
+        if(!decks.get(p).getCardPile().get(choice).getIsColumn()){
+            discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
+            getDecks().get(p).getCardPile().set(choice-1, c);
+            this.decks.get(p).checkIdenticalCardsColumn();
+            System.out.println(decks.get(p));
+        }
+        else{
+            System.out.println("This card is in a column with other identical cards. Please select another one.");
+            replaceCard(c, p);
+        }
     }
 
     /**
