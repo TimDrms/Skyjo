@@ -13,7 +13,7 @@ public class DiscardPile extends CardPile{
     }
 
     /**
-     * This method will pick the card that is in top of the discard pile.
+     * This method will pick the card that is on top of the discard pile.
      * It should be called when a player decide to pick a card inside the discard pile instead of the draw pile.
      *
      * @return the card that has been drawn.
@@ -43,14 +43,5 @@ public class DiscardPile extends CardPile{
         else{
             return null;
         }
-    }
-
-    @Override
-    public String toString() {
-        String value = "";
-        for(Card card : getCardPile()){
-            value += "This card has the value " + card.getValue() + ".\n";
-        }
-        return value;
     }
 }
