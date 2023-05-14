@@ -1,8 +1,8 @@
 public class Card {
-    private int value = 0;
-    private String name=null;
-    private boolean isReturned = false;
-    private boolean isColumn = false;
+    private int value = 0; // Value of the card
+    private String name = null; // Name of the card
+    private boolean isReturned = false; // Boolean that say if the card is returned or not
+    private boolean isColumn = false; // Boolean that say if the card is in a column with other cards that have the same value.
     Card(){
         this.value = 0;
         this.name = null;
