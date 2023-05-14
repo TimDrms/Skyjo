@@ -117,24 +117,24 @@ public class Game {
     }
 
     /**
-     * This method return the player that is winning by comparing the score of each of them using the variable max.
-     * In case of equality, the winner is drawn as random.
-     * @return Player, winner of the round
+     * This method return the player that is losing by comparing the score of each of them using the variable max.
+     * In case of equality, the loser is drawn as random.
+     * @return Player, loser of the round
      */
-    public Player isWinning(){
-        Player winner = null;
+    public Player isLosing(){
+        Player loser = null;
         int max = -50;
         Random rd = new Random();
         for(int i=0; i<this.getNbPlayers(); i++){
             if(this.getPlayers().get(i).getScoreGame() > max) {
-                winner = this.getPlayers().get(i);
+                loser = this.getPlayers().get(i);
             }else if(this.getPlayers().get(i).getScoreGame() == max){
                 if(rd.nextBoolean()){
-                    winner = this.getPlayers().get(i);
+                    loser = this.getPlayers().get(i);
                 }
             }
         }
-        return winner;
+        return loser;
     }
 
     /**
@@ -162,9 +162,13 @@ public class Game {
      * @return true if the game is finished, or false if the game is not finished.
      */
     public boolean stateOfTheGame(){
-        Player winner=this.isWinning();
-        if(winner.getScoreGame() >= 100){
-            System.out.println("Game ended! The winner is " + winner.getPlayer() + "! Congratz!");
+        Player loser=this.isLosing();
+        if(loser.getScoreGame() >= 100){
+            System.out.println("Game ended! " + loser.getPlayer() + " just reached " + loser.getScoreGame() +" points !");
+            System.out.println("Here are everyone's scores : ");
+            for (int i=0;i<this.getNbPlayers();i++){
+                System.out.println(this.players.get(i).getPlayer() +" has " + this.players.get(i).getScoreGame() + " points !");
+            }
             return true;
         }
         else{
