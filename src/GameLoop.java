@@ -1,5 +1,5 @@
 import java.io.IOException;
-public class Main {
+public class GameLoop {
     /**
      * Here is the game loop, one of the key component because it will make everything working together.
      * It will create a new game, new rounds when needed, and make every player plays.
