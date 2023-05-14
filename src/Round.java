@@ -129,7 +129,7 @@ public class Round {
         System.out.println("Which card do you want to replace from your deck? location : [1;12]");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
-        if(!decks.get(p).getCardPile().get(choice).getIsColumn()){
+        if(!decks.get(p).getCardPile().get(choice-1).getIsColumn()){
             discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
             getDecks().get(p).getCardPile().set(choice-1, c);
             this.decks.get(p).checkIdenticalCardsColumn();

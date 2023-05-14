@@ -97,13 +97,14 @@ public class Main {
             while(!roundOver){
                 //System.out.println(game.getActualRound().getDecks().get(0));
                 for(int i = 0; i < game.getNbPlayers() ; i++){
-                    /*game.getActualRound().getDecks().get(0).getCardPile().get(0).setValue(4);
+                    /* game.getActualRound().getDecks().get(0).getCardPile().get(0).setValue(4);
                     game.getActualRound().getDecks().get(0).getCardPile().get(4).setValue(4);
                     game.getActualRound().getDecks().get(0).getCardPile().get(8).setValue(4);
                     game.getActualRound().getDecks().get(0).getCardPile().get(0).setIsReturned(true);
                     game.getActualRound().getDecks().get(0).getCardPile().get(4).setIsReturned(true);
                     game.getActualRound().getDecks().get(0).getCardPile().get(8).setIsReturned(true);
                     game.getActualRound().getDecks().get(0).checkIdenticalCardsColumn();*/
+
                     System.out.println("\n------------------------------------------------------------------------");
                     System.out.println(game.players.get(i).getPlayer() + " it's your turn!");
                     System.out.println("Here is a reminder of your deck.");
