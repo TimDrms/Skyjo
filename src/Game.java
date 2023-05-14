@@ -74,15 +74,9 @@ public class Game {
     /**
      * This method will initialize the game.
      * When we want to start a new game, this method will be called and initialize all the things that we need.
-     * So we will create a new draw pile, new players, new decks, etc.
-     * At the end, we need to return a new round, so we can play a game.
-     *
-     * @return new round, so we can do the first round of the game
+     * So we will create all the new players.
      */
     public void initializeGame() throws IOException {
-        /*
-        Hasn't been correctly tested yet.
-         */
         howMuchPlayers();
         for(int i = 0 ; i < nbPlayers ; i++){
             Player player = new Player();
@@ -118,7 +112,7 @@ public class Game {
 
     /**
      * This method return the player that is losing by comparing the score of each of them using the variable max.
-     * In case of equality, the loser is drawn as random.
+     * In case of equality, the loser is drawn randomly.
      * @return Player, loser of the round
      */
     public Player isLosing(){
@@ -138,7 +132,7 @@ public class Game {
     }
 
     /**
-     * This method is calling at the end of each round to adding up the score of the actual round to the score of the game for each player
+     * This method is called at the end of each round to add up the score of the actual round to the score of the game for each player
      */
     public void attributeScore(){
         System.out.println("\n------------------------------------------------------------------------");
@@ -153,11 +147,6 @@ public class Game {
      * This method should be called at the end of a round.
      * The goal is to see if a player has more than 100 points. If so, the game should end.
      * If there is no player with more than 100 points, we'll have to create a new round in this game.
-     *
-     * Variable isFinished : This boolean have to be defined to true if there is a winner.
-     * Variable winner : Takes the username of the winner.
-     * Variable draw : Takes the username of both players that are in a draw i guess.
-     * Variable lowestScore : Save the score of the player that has the lowest score.
      *
      * @return true if the game is finished, or false if the game is not finished.
      */

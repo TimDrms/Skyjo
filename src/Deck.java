@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Deck extends CardPile{
-    private int scoreRound; // Score of the round of the player who owns the deck.
+    private int scoreRound; // Player's round score who owns the deck.
 
     /**
      * Setter that will set the total score of the round.
@@ -41,11 +41,12 @@ public class Deck extends CardPile{
      * This method check if there are three cards with the same value in a column
      */
     public void checkIdenticalCardsColumn(){
-        for(int i=0; i<4;i++) {
+        for(int i=0; i<4;i++) { // For loop in order to check in every column
             if (this.getCardPile().get(0 + i).getValue() == this.getCardPile().get(4 + i).getValue()
-            && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue()
+            && this.getCardPile().get(4 + i).getValue() == this.getCardPile().get(8 + i).getValue() // Check if the value is the same for the three cards in the same column
             && this.getCardPile().get(0 + i).getIsReturned() && this.getCardPile().get(4 + i).getIsReturned()
-            && this.getCardPile().get(8 + i).getIsReturned()){
+            && this.getCardPile().get(8 + i).getIsReturned()){ // Check if the cards are also returned
+                // Put the value for the cards to 0 and set isColumn to true. Putting isColumn to true is useful for the future.
                 this.getCardPile().get(0 + i).setIsColumn(true);
                 this.getCardPile().get(0 + i).setValue(0);
                 this.getCardPile().get(4 + i).setIsColumn(true);
@@ -57,7 +58,8 @@ public class Deck extends CardPile{
     }
 
     /**
-     * This method calc the score of the deck by adding up the values of every cards that are returned (score in real time for players)
+     * This method calculate the score of the deck by adding up the values of every cards that are returned (score in real time for players)
+     * That means that we will add up the value of the cards that are returned.
      * @return int, score of the deck
      */
     public int getScoreFromDeck(){

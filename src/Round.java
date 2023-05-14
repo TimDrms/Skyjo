@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Round {
 
-    private ArrayList<Deck> decks = new ArrayList<>();
-    private DrawPile drawPile;
-    private DiscardPile discardPile;
+    private ArrayList<Deck> decks = new ArrayList<>(); // The ArrayList that contains all the deck of the round.
+    private DrawPile drawPile; // The draw pile of the round
+    private DiscardPile discardPile; // The discard pile of the round
 
     /**
      * The constructor of the round will do all the things needed to initialize a round.
@@ -41,14 +41,29 @@ public class Round {
         }
     }
 
+    /**
+     * Getter that will return the ArrayList of decks.
+     *
+     * @return decks, all the deck of the round.
+     */
     public ArrayList<Deck> getDecks() {
         return this.decks;
     }
 
+    /**
+     * Getter that will return the draw pile of the round
+     *
+     * @return drawPile, the draw pile of the round
+     */
     public DrawPile getDrawpile() {
         return this.drawPile;
     }
 
+    /**
+     * Getter that will return the discard pile of the round
+     *
+     * @return discardPile, the discard pile of the round
+     */
     public DiscardPile getDiscardpile() {
         return this.discardPile;
     }
@@ -63,10 +78,10 @@ public class Round {
     public void chooseBetweenDrawDiscard(int p){
         int choice = 0; // Local variable that will be used to determine if we want to pick a card from the draw pile or the discard pile
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Do you want to pick a random card from the pile card (say 1) \nOr the card that is on top of the discard pile, which is " + this.discardPile.showTheTopCard() + " (say 2)");
+        System.out.println("Do you want to pick a random card from the draw pile (say 1) \nOr the card that is on top of the discard pile, which is " + this.discardPile.showTheTopCard() + " (say 2)");
         choice = myObj.nextInt();  // Read user input
 
-        if(choice == 1){
+        if(choice == 1){ // Choice of picking a card in the draw pile.
             Card drawnCard = new Card();
             drawnCard = drawPile.pickDrawCard();
             System.out.println("The card you picked is " + drawnCard);
@@ -74,8 +89,7 @@ public class Round {
         }
         else if(choice == 2){
             this.discardPile.showTheTopCard().setIsReturned(true);
-            replaceCard(this.discardPile.pickDiscardCard(),p);
-
+            replaceCard(this.discardPile.pickDiscardCard(),p); // Replacing one of the card of our deck by the card on top of the discard pile
         }
         else{
             System.out.println("Error: invalid number. You should type 1 or 2 to choose. \nWhich action you want to do?");
@@ -97,7 +111,7 @@ public class Round {
         System.out.println("Do you want to drop the card that you drew in the discard pile (say 1) \nOr do you want to replace it by a card of your deck ? (say 2)");
         choice = myObj.nextInt();  // Read user input
 
-        if(choice == 1){
+        if(choice == 1){ // Choice of dropping the card into the discard pile and returning of the card of the deck.
             discardPile.addDiscardPile(c);
             System.out.println("The card is now in the discard pile.");
             System.out.println("Now you have to return one of the cards in your deck. \nWhich one do you want to return?");
@@ -105,7 +119,7 @@ public class Round {
             decks.get(p).returnCard(decks.get(p).getCardPile().get(choice-1)); // Return the specified card from the correct deck
 
         }
-        else if(choice == 2){
+        else if(choice == 2){ // Choice of replacing the card that we drew by one of the card of our deck.
             c.setIsReturned(true);
             replaceCard(c,p);
         }
@@ -129,11 +143,11 @@ public class Round {
         System.out.println("Which card do you want to replace from your deck? location : [1;12]");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         choice = myObj.nextInt();
-        if(!decks.get(p).getCardPile().get(choice-1).getIsColumn()){
-            discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1));
-            getDecks().get(p).getCardPile().set(choice-1, c);
-            this.decks.get(p).checkIdenticalCardsColumn();
-            System.out.println(decks.get(p));
+        if(!decks.get(p).getCardPile().get(choice-1).getIsColumn()){ // Check if the card is in a column with other identical cards (in that case, we should not be able to move the card).
+            discardPile.addDiscardPile(getDecks().get(p).getCardPile().get(choice-1)); // Add the card that is currently in the deck to the discard pile.
+            getDecks().get(p).getCardPile().set(choice-1, c); // Replace the card by the new card in the correct position.
+            this.decks.get(p).checkIdenticalCardsColumn(); // Check if there is identical cards in one of the column
+            System.out.println(decks.get(p)); // Print the player's deck
         }
         else{
             System.out.println("This card is in a column with other identical cards. Please select another one.");
@@ -143,10 +157,8 @@ public class Round {
 
     /**
      * This method allow to easily pick a specific card of a deck
-     * We take the round in progress, then the deck of the player in parameter
-     * and finally the number of the card we want to pick.
-     * @param player int, number of the player (place in the ArrayList of players,
-     *               in the same order as the ArrayList of Decks)
+     * To do that we will get the deck of the player wanted and finally the position of the card we want to pick.
+     * @param player int, number of the player (place in the ArrayList of players, in the same order as the ArrayList of Decks)
      * @param nb int, position of the card in the deck
      * @return Card, the card we wanted to pick
      */

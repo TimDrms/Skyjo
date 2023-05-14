@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class DrawPile extends CardPile{
     /**
-     * This method generate the DrawPile, it will be use at the beginning of each round.
+     * This method generate the DrawPile, it will be used at the beginning of each round.
      * The configuration of the drawPile is stored in the file cards.txt
-     * For each lines we read, we have a integer, who represent the number of card that will be created,
-     * an integer for the value of those cards and a string for the name of those card.
+     * For each line we read, we have an integer, who represent the number of card that will be created,
+     * an integer for the value of those cards and a string for the name of those cards.
      * @throws IOException
      */
     public void generateDrawPile() throws IOException {
@@ -35,9 +35,6 @@ public class DrawPile extends CardPile{
                 }
            }
             myReader.close();
-            //System.out.println("draw pile has been generated");
-
-                //
             }
        else{
           System.out.println("The draw pile has already been generated.");
@@ -45,7 +42,7 @@ public class DrawPile extends CardPile{
     }
 
     /**
-     * This card allow to randomly pick a card in the draw card.
+     * This method will randomly pick a card in the draw card.
      * We use shuffle to mix all the card randomly, and then, we pick the first card of the drawPile and return it.
      * If the drawPile is empty, an error will be written in the console and an empty card will be return.
      * @return Card drawn
