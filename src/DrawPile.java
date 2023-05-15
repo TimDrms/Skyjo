@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DrawPile extends CardPile{
     /**
      * This method generate the DrawPile, it will be used at the beginning of each round.
-     * The configuration of the drawPile is stored in the file cards.txt
+     * The configuration of the drawPile is stored in the file cards.txt (containing value, quantity and name for each cards)
      * For each line we read, we have an integer, who represent the number of card that will be created,
      * an integer for the value of those cards and a string for the name of those cards.
      * @throws IOException
@@ -31,34 +31,7 @@ public class DrawPile extends CardPile{
             } catch (IOException e){
                 e.printStackTrace(); // Exception in case of error
             }
-
-
-
-            /*Scanner scan = new Scanner(System.in);
-            File myObj = new File("./data/cards.txt");
-            Scanner myReader = new Scanner(myObj);
-
-            //For each line :
-            //We read the first number, which is the value of the card
-            while (myReader.hasNextInt()){
-                int value = myReader.nextInt();
-                if(myReader.hasNextInt()){
-                    //We read the second number, which is the quantity
-                    int quantity = myReader.nextInt();
-                    if(myReader.hasNext()){
-                        //We read the name of the card
-                        String name = myReader.next();
-                        //We generate the quantity of card read from the file
-                        for (int i = 0; i < quantity; i++) {
-                            //Each card has the value and the name read from the file
-                            this.getCardPile().add(new Card(value, name,false, false));
-                        }
-                    }
-
-                }
-           }
-            myReader.close();*/
-            }
+        }
        else{
           System.out.println("The draw pile has already been generated.");
         }
