@@ -139,6 +139,7 @@ public class Game {
         System.out.println("End of the round");
         for(int i=0;i<this.getNbPlayers();i++){
             System.out.println("For the player " + this.getPlayers().get(i).getPlayer() + " :");
+            //We add to the total score of each player, the score he just obtained in the last round
             this.players.get(i).setScoreGame(this.players.get(i).getScoreGame() + this.getActualRound().getDecks().get(i).getFinalScoreFromDeck());
         }
     }

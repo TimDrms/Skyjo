@@ -20,14 +20,19 @@ public class DrawPile extends CardPile{
             File myObj = new File("./data/cards.txt");
             Scanner myReader = new Scanner(myObj);
 
-            //the first number of each line is the value of the card and the second one is the quantity
+            //For each line :
+            //We read the first number, which is the value of the card
             while (myReader.hasNextInt()){
                 int value = myReader.nextInt();
                 if(myReader.hasNextInt()){
+                    //We read the second number, which is the quantity
                     int quantity = myReader.nextInt();
                     if(myReader.hasNext()){
+                        //We read the name of the card
                         String name = myReader.next();
+                        //We generate the quantity of card read from the file
                         for (int i = 0; i < quantity; i++) {
+                            //Each card has the value and the name read from the file
                             this.getCardPile().add(new Card(value, name,false, false));
                         }
                     }
