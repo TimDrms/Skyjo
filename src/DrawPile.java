@@ -12,11 +12,29 @@ public class DrawPile extends CardPile{
      * @throws IOException
      */
     public void generateDrawPile() throws IOException {
-        //int nbPlayers = game.getNbPlayers();
         //Verify if the draw pile has already been generated
         if(this.getCardPile().isEmpty()){
             //Open the file cards.txt containing the number of each card to initialize
-            Scanner scan = new Scanner(System.in);
+            try{
+                BufferedReader reader = new BufferedReader(new FileReader("./data/cards.txt")); // Read the file
+                String line; // Line of the .txt file
+                while ((line = reader.readLine()) != null) { // Read every lines
+                    String[] parts = line.split(" "); // The separator between each value
+                    int value = Integer.parseInt(parts[0]); // Read the first value (which is the value of the card)
+                    int quantity = Integer.parseInt(parts[1]); // Read the second value (which is the quantity of the card in our draw pile)
+                    String name = String.join(" ", parts[2]); // Read the third value (which is the name of the card)
+                    for (int i = 0; i < quantity; i++) { // Creating the correct quantity of that card
+                        this.getCardPile().add(new Card(value, name,false, false)); // Adding that card to the pile
+                    }
+                }
+                reader.close(); // Closing the file
+            } catch (IOException e){
+                e.printStackTrace(); // Exception in case of error
+            }
+
+
+
+            /*Scanner scan = new Scanner(System.in);
             File myObj = new File("./data/cards.txt");
             Scanner myReader = new Scanner(myObj);
 
@@ -34,7 +52,7 @@ public class DrawPile extends CardPile{
 
                 }
            }
-            myReader.close();
+            myReader.close();*/
             }
        else{
           System.out.println("The draw pile has already been generated.");
